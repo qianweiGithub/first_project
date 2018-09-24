@@ -1,4 +1,4 @@
-1.下载代码 
+﻿1.下载代码 
 git clone https*** 
 2.提交代码
 git add .
@@ -9,3 +9,6 @@ git push -f -m origin master
 3.拉取前面版本
 git reset --hard 版本号（可以通过git log查询）
 git push -f -m origin master
+
+4.设置记住密码
+git config --global credential.helper store
