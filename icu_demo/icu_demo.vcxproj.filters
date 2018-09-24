@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{ea500264-5ab9-414b-8e56-e1e92b7c7623}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\unicode">
+      <UniqueIdentifier>{73dbb781-8951-45e3-b9f4-a08ca24669a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uts46.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="normalizer2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uidna.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uobject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="umutex.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="normalizer2impl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uniset.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="loadednormalizer2impl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="appendable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bmpset.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="brkeng.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="brkiter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bytestream.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bytestrie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bytestriebuilder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bytestrieiterator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="caniter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="chariter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="charstr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cstr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dictbe.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dictionarydata.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="dtintrv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="errorcode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="filteredbrk.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="filterednormalizer2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="icuplug.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="listformatter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="locavailable.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="locbased.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="locdispnames.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="locdspnm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="locid.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="loclikely.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="locresdata.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="locutil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="messagepattern.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="normlzr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="parsepos.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="patternprops.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pluralmap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="propname.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="punycode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="putil.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbi.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbidata.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbinode.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbirb.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbiscan.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbisetb.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbistbl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbitblb.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="resbund.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="resbund_cnv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="resource.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ruleiter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="schriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="serv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="servlk.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="servlkf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="servls.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="servnotf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="servrbf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="servslkf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sharedobject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="simpleformatter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stringpiece.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stringtriebuilder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ubrk.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucasemap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucasemap_titlecase_brkiter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucharstrie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucharstriebuilder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucharstrieiterator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uchriter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucln_cmn.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_bld.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_ext.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_io.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv2022.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvbocu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvmbcs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvsel.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucol_swp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucurr.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="udata.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uhash_us.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uinit.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uiter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ulistformatter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uloc.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uloc_keytype.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unames.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unifiedcache.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unifilt.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unifunct.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uniset_closure.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uniset_props.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unisetspan.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_case.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_case_locale.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_cnv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_props.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_titlecase_brkiter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unorm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="unormcmp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uprops.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uresbund.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uresdata.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uscript_props.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uset.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uset_props.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="usetiter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ushape.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="usprep.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustr_cnv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustr_titlecase_brkiter.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustr_wcs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrcase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrcase_locale.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrenum.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustring.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrtrns.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utext.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="util_props.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utrie.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utrie2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utrie2_builder.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uvector.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uvectr32.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uvectr64.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cmemory.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cstring.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="cwchar.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="icudataver.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="locmap.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="propsvec.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="stubdata.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uarrsort.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ubidi.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ubidi_props.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ubidiln.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ubiditransform.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ubidiwrt.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucat.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uchar.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucmndata.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_cb.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_cnv.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_ct.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_err.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_lmb.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_set.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_u7.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_u8.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_u16.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_u32.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvdisp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvhz.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvisci.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvlat1.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvscsu.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="udatamem.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="udataswp.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uenum.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uhash.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uinvchar.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ulist.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uloc_tag.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="umapfile.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="umath.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ures_cnv.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="usc_impl.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="uscript.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrfmt.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utf_impl.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utrace.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utypes.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="wintz.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="unicode\uidna.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\localpointer.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\parseerr.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\platform.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\ptypes.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\uconfig.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\umachine.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\urename.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\utf.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\utf_old.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\utf8.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\utf16.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\utypes.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\uvernum.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="unicode\uversion.h">
+      <Filter>source\unicode</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="Makefile.in" />
+  </ItemGroup>
+</Project>
