@@ -38,8 +38,6 @@ public:
     void load(const char *packageName, const char *name, UErrorCode &errorCode);
 
 private:
-    static UBool U_CALLCONV
-    isAcceptable(void *context, const char *type, const char *name, const UDataInfo *pInfo);
 
     UDataMemory *memory;
     UTrie2 *ownedTrie;
@@ -50,37 +48,15 @@ LoadedNormalizer2Impl::~LoadedNormalizer2Impl() {
     utrie2_close(ownedTrie);
 }
 
-UBool U_CALLCONV
-LoadedNormalizer2Impl::isAcceptable(void * /*context*/,
-                                    const char * /* type */, const char * /*name*/,
-                                    const UDataInfo *pInfo) {
-    if(
-        pInfo->size>=20 &&
-        pInfo->isBigEndian==U_IS_BIG_ENDIAN &&
-        pInfo->charsetFamily==U_CHARSET_FAMILY &&
-        pInfo->dataFormat[0]==0x4e &&    /* dataFormat="Nrm2" */
-        pInfo->dataFormat[1]==0x72 &&
-        pInfo->dataFormat[2]==0x6d &&
-        pInfo->dataFormat[3]==0x32 &&
-        pInfo->formatVersion[0]==2
-    ) {
-        // Normalizer2Impl *me=(Normalizer2Impl *)context;
-        // uprv_memcpy(me->dataVersion, pInfo->dataVersion, 4);
-        return TRUE;
-    } else {
-        return FALSE;
-    }
-}
-
 void
 LoadedNormalizer2Impl::load(const char *packageName, const char *name, UErrorCode &errorCode) {
     if(U_FAILURE(errorCode)) {
         return;
     }
-    memory=udata_openChoice(packageName, "nrm", name, isAcceptable, this, &errorCode);
+    /*memory=udata_openChoice(packageName, "nrm", name, isAcceptable, this, &errorCode);
     if(U_FAILURE(errorCode)) {
         return;
-    }
+    }*/
     const uint8_t *inBytes=(const uint8_t *)udata_getMemory(memory);
     const int32_t *inIndexes=(const int32_t *)inBytes;
     int32_t indexesLength=inIndexes[IX_NORM_TRIE_OFFSET]/4;
@@ -184,23 +160,23 @@ Norm2AllModes::getNFKC_CFInstance(UErrorCode &errorCode) {
     return nfkc_cfSingleton;
 }
 
-const Normalizer2 *
-Normalizer2::getNFKCInstance(UErrorCode &errorCode) {
-    const Norm2AllModes *allModes=Norm2AllModes::getNFKCInstance(errorCode);
-    return allModes!=NULL ? &allModes->comp : NULL;
-}
+//const Normalizer2 *
+//Normalizer2::getNFKCInstance(UErrorCode &errorCode) {
+//    const Norm2AllModes *allModes=Norm2AllModes::getNFKCInstance(errorCode);
+//    return allModes!=NULL ? &allModes->comp : NULL;
+//}
 
-const Normalizer2 *
-Normalizer2::getNFKDInstance(UErrorCode &errorCode) {
-    const Norm2AllModes *allModes=Norm2AllModes::getNFKCInstance(errorCode);
-    return allModes!=NULL ? &allModes->decomp : NULL;
-}
+//const Normalizer2 *
+//Normalizer2::getNFKDInstance(UErrorCode &errorCode) {
+//    const Norm2AllModes *allModes=Norm2AllModes::getNFKCInstance(errorCode);
+//    return allModes!=NULL ? &allModes->decomp : NULL;
+//}
 
-const Normalizer2 *
-Normalizer2::getNFKCCasefoldInstance(UErrorCode &errorCode) {
-    const Norm2AllModes *allModes=Norm2AllModes::getNFKC_CFInstance(errorCode);
-    return allModes!=NULL ? &allModes->comp : NULL;
-}
+//const Normalizer2 *
+//Normalizer2::getNFKCCasefoldInstance(UErrorCode &errorCode) {
+//    const Norm2AllModes *allModes=Norm2AllModes::getNFKC_CFInstance(errorCode);
+//    return allModes!=NULL ? &allModes->comp : NULL;
+//}
 
 const Normalizer2 *
 Normalizer2::getInstance(const char *packageName,
@@ -279,38 +255,38 @@ Normalizer2::getInstance(const char *packageName,
     return NULL;
 }
 
-const Normalizer2 *
-Normalizer2Factory::getInstance(UNormalizationMode mode, UErrorCode &errorCode) {
-    if(U_FAILURE(errorCode)) {
-        return NULL;
-    }
-    switch(mode) {
-    case UNORM_NFD:
-        return Normalizer2::getNFDInstance(errorCode);
-    case UNORM_NFKD:
-        return Normalizer2::getNFKDInstance(errorCode);
-    case UNORM_NFC:
-        return Normalizer2::getNFCInstance(errorCode);
-    case UNORM_NFKC:
-        return Normalizer2::getNFKCInstance(errorCode);
-    case UNORM_FCD:
-        return getFCDInstance(errorCode);
-    default:  // UNORM_NONE
-        return getNoopInstance(errorCode);
-    }
-}
+//const Normalizer2 *
+//Normalizer2Factory::getInstance(UNormalizationMode mode, UErrorCode &errorCode) {
+//    if(U_FAILURE(errorCode)) {
+//        return NULL;
+//    }
+//    switch(mode) {
+//    case UNORM_NFD:
+//        return Normalizer2::getNFDInstance(errorCode);
+//    case UNORM_NFKD:
+//        return Normalizer2::getNFKDInstance(errorCode);
+//    case UNORM_NFC:
+//        return Normalizer2::getNFCInstance(errorCode);
+//    case UNORM_NFKC:
+//        return Normalizer2::getNFKCInstance(errorCode);
+//    case UNORM_FCD:
+//        return getFCDInstance(errorCode);
+//    default:  // UNORM_NONE
+//        return getNoopInstance(errorCode);
+//    }
+//}
 
-const Normalizer2Impl *
-Normalizer2Factory::getNFKCImpl(UErrorCode &errorCode) {
-    const Norm2AllModes *allModes=Norm2AllModes::getNFKCInstance(errorCode);
-    return allModes!=NULL ? allModes->impl : NULL;
-}
+//const Normalizer2Impl *
+//Normalizer2Factory::getNFKCImpl(UErrorCode &errorCode) {
+//    const Norm2AllModes *allModes=Norm2AllModes::getNFKCInstance(errorCode);
+//    return allModes!=NULL ? allModes->impl : NULL;
+//}
 
-const Normalizer2Impl *
-Normalizer2Factory::getNFKC_CFImpl(UErrorCode &errorCode) {
-    const Norm2AllModes *allModes=Norm2AllModes::getNFKC_CFInstance(errorCode);
-    return allModes!=NULL ? allModes->impl : NULL;
-}
+//const Normalizer2Impl *
+//Normalizer2Factory::getNFKC_CFImpl(UErrorCode &errorCode) {
+//    const Norm2AllModes *allModes=Norm2AllModes::getNFKC_CFInstance(errorCode);
+//    return allModes!=NULL ? allModes->impl : NULL;
+//}
 
 U_NAMESPACE_END
 
@@ -318,41 +294,41 @@ U_NAMESPACE_END
 
 U_NAMESPACE_USE
 
-U_CAPI const UNormalizer2 * U_EXPORT2
-unorm2_getNFKCInstance(UErrorCode *pErrorCode) {
-    return (const UNormalizer2 *)Normalizer2::getNFKCInstance(*pErrorCode);
-}
+//U_CAPI const UNormalizer2 * U_EXPORT2
+//unorm2_getNFKCInstance(UErrorCode *pErrorCode) {
+//    return (const UNormalizer2 *)Normalizer2::getNFKCInstance(*pErrorCode);
+//}
+//
+//U_CAPI const UNormalizer2 * U_EXPORT2
+//unorm2_getNFKDInstance(UErrorCode *pErrorCode) {
+//    return (const UNormalizer2 *)Normalizer2::getNFKDInstance(*pErrorCode);
+//}
+//
+//U_CAPI const UNormalizer2 * U_EXPORT2
+//unorm2_getNFKCCasefoldInstance(UErrorCode *pErrorCode) {
+//    return (const UNormalizer2 *)Normalizer2::getNFKCCasefoldInstance(*pErrorCode);
+//}
 
-U_CAPI const UNormalizer2 * U_EXPORT2
-unorm2_getNFKDInstance(UErrorCode *pErrorCode) {
-    return (const UNormalizer2 *)Normalizer2::getNFKDInstance(*pErrorCode);
-}
+//U_CAPI const UNormalizer2 * U_EXPORT2
+//unorm2_getInstance(const char *packageName,
+//                   const char *name,
+//                   UNormalization2Mode mode,
+//                   UErrorCode *pErrorCode) {
+//    return (const UNormalizer2 *)Normalizer2::getInstance(packageName, name, mode, *pErrorCode);
+//}
 
-U_CAPI const UNormalizer2 * U_EXPORT2
-unorm2_getNFKCCasefoldInstance(UErrorCode *pErrorCode) {
-    return (const UNormalizer2 *)Normalizer2::getNFKCCasefoldInstance(*pErrorCode);
-}
-
-U_CAPI const UNormalizer2 * U_EXPORT2
-unorm2_getInstance(const char *packageName,
-                   const char *name,
-                   UNormalization2Mode mode,
-                   UErrorCode *pErrorCode) {
-    return (const UNormalizer2 *)Normalizer2::getInstance(packageName, name, mode, *pErrorCode);
-}
-
-U_CFUNC UNormalizationCheckResult
-unorm_getQuickCheck(UChar32 c, UNormalizationMode mode) {
-    if(mode<=UNORM_NONE || UNORM_FCD<=mode) {
-        return UNORM_YES;
-    }
-    UErrorCode errorCode=U_ZERO_ERROR;
-    const Normalizer2 *norm2=Normalizer2Factory::getInstance(mode, errorCode);
-    if(U_SUCCESS(errorCode)) {
-        return ((const Normalizer2WithImpl *)norm2)->getQuickCheck(c);
-    } else {
-        return UNORM_MAYBE;
-    }
-}
+//U_CFUNC UNormalizationCheckResult
+//unorm_getQuickCheck(UChar32 c, UNormalizationMode mode) {
+//    if(mode<=UNORM_NONE || UNORM_FCD<=mode) {
+//        return UNORM_YES;
+//    }
+//    UErrorCode errorCode=U_ZERO_ERROR;
+//    const Normalizer2 *norm2=Normalizer2Factory::getInstance(mode, errorCode);
+//    if(U_SUCCESS(errorCode)) {
+//        return ((const Normalizer2WithImpl *)norm2)->getQuickCheck(c);
+//    } else {
+//        return UNORM_MAYBE;
+//    }
+//}
 
 #endif  // !UCONFIG_NO_NORMALIZATION

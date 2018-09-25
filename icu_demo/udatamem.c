@@ -83,9 +83,9 @@ UDataMemory_normalizeDataPointer(const void *p) {
 }
 
 
-U_CFUNC void UDataMemory_setData (UDataMemory *This, const void *dataAddr) {
-    This->pHeader = UDataMemory_normalizeDataPointer(dataAddr);
-}
+//U_CFUNC void UDataMemory_setData (UDataMemory *This, const void *dataAddr) {
+//    This->pHeader = UDataMemory_normalizeDataPointer(dataAddr);
+//}
 
 
 U_CAPI void U_EXPORT2
@@ -129,33 +129,33 @@ udata_getMemory(UDataMemory *pData) {
  * @return the length of the data item, or -1 if not known
  * @internal Currently used only in cintltst/udatatst.c
  */
-U_CAPI int32_t U_EXPORT2
-udata_getLength(const UDataMemory *pData) {
-    if(pData!=NULL && pData->pHeader!=NULL && pData->length>=0) {
-        /*
-         * subtract the header size,
-         * return only the size of the actual data starting at udata_getMemory()
-         */
-        return pData->length-udata_getHeaderSize(pData->pHeader);
-    } else {
-        return -1;
-    }
-}
+//U_CAPI int32_t U_EXPORT2
+//udata_getLength(const UDataMemory *pData) {
+//    if(pData!=NULL && pData->pHeader!=NULL && pData->length>=0) {
+//        /*
+//         * subtract the header size,
+//         * return only the size of the actual data starting at udata_getMemory()
+//         */
+//        return pData->length-udata_getHeaderSize(pData->pHeader);
+//    } else {
+//        return -1;
+//    }
+//}
 
 /**
  * Get the memory including the data header.
  * Used in cintltst/udatatst.c
  * @internal
  */
-U_CAPI const void * U_EXPORT2
-udata_getRawMemory(const UDataMemory *pData) {
-    if(pData!=NULL && pData->pHeader!=NULL) {
-        return pData->pHeader;
-    } else {
-        return NULL;
-    }
-}
-
-U_CFUNC UBool UDataMemory_isLoaded(const UDataMemory *This) {
-    return This->pHeader != NULL;
-}
+//U_CAPI const void * U_EXPORT2
+//udata_getRawMemory(const UDataMemory *pData) {
+//    if(pData!=NULL && pData->pHeader!=NULL) {
+//        return pData->pHeader;
+//    } else {
+//        return NULL;
+//    }
+//}
+//
+//U_CFUNC UBool UDataMemory_isLoaded(const UDataMemory *This) {
+//    return This->pHeader != NULL;
+//}

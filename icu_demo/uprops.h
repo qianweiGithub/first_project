@@ -226,42 +226,12 @@ enum {
 #define UPROPS_DT_MASK          0x0000001f
 
 /**
- * Gets the main properties value for a code point.
- * Implemented in uchar.c for uprops.cpp.
- */
-U_CFUNC uint32_t
-u_getMainProperties(UChar32 c);
-
-/**
  * Get a properties vector word for a code point.
  * Implemented in uchar.c for uprops.cpp.
  * @return 0 if no data or illegal argument
  */
 U_CFUNC uint32_t
 u_getUnicodeProperties(UChar32 c, int32_t column);
-
-/**
- * Get the the maximum values for some enum/int properties.
- * Use the same column numbers as for u_getUnicodeProperties().
- * The returned value will contain maximum values stored in the same bit fields
- * as where the enum values are stored in the u_getUnicodeProperties()
- * return values for the same columns.
- *
- * Valid columns are those for properties words that contain enumerated values.
- * (ICU 2.6: columns 0 and 2)
- * For other column numbers, this function will return 0.
- *
- * @internal
- */
-U_CFUNC int32_t
-uprv_getMaxValues(int32_t column);
-
-/**
- * Checks if c is alphabetic, or a decimal digit; implements UCHAR_POSIX_ALNUM.
- * @internal
- */
-U_CFUNC UBool
-u_isalnumPOSIX(UChar32 c);
 
 /**
  * Checks if c is in
@@ -272,14 +242,6 @@ u_isalnumPOSIX(UChar32 c);
  */
 U_CFUNC UBool
 u_isgraphPOSIX(UChar32 c);
-
-/**
- * Checks if c is in \p{graph}\p{blank} - \p{cntrl}.
- * Implements UCHAR_POSIX_PRINT.
- * @internal
- */
-U_CFUNC UBool
-u_isprintPOSIX(UChar32 c);
 
 /** Turn a bit index into a bit flag. @internal */
 #define FLAG(n) ((uint32_t)1<<(n))
@@ -351,22 +313,6 @@ enum {
 };
 
 /**
- * Get the maximum length of a (regular/1.0/extended) character name.
- * @return 0 if no character names available.
- */
-U_CAPI int32_t U_EXPORT2
-uprv_getMaxCharNameLength(void);
-
-/**
- * Fills set with characters that are used in Unicode character names.
- * Includes all characters that are used in regular/Unicode 1.0/extended names.
- * Just empties the set if no character names are available.
- * @param sa USetAdder to receive characters.
- */
-U_CAPI void U_EXPORT2
-uprv_getCharNameCharacters(const USetAdder *sa);
-
-/**
  * Constants for which data and implementation files provide which properties.
  * Used by UnicodeSet for service-specific property enumeration.
  * @internal
@@ -401,49 +347,6 @@ enum UPropertySource {
 };
 typedef enum UPropertySource UPropertySource;
 
-/**
- * @see UPropertySource
- * @internal
- */
-U_CFUNC UPropertySource U_EXPORT2
-uprops_getSource(UProperty which);
-
-/**
- * Enumerate uprops.icu's main data trie and add the
- * start of each range of same properties to the set.
- * @internal
- */
-U_CFUNC void U_EXPORT2
-uchar_addPropertyStarts(const USetAdder *sa, UErrorCode *pErrorCode);
-
-/**
- * Enumerate uprops.icu's properties vectors trie and add the
- * start of each range of same properties to the set.
- * @internal
- */
-U_CFUNC void U_EXPORT2
-upropsvec_addPropertyStarts(const USetAdder *sa, UErrorCode *pErrorCode);
-
-/**
- * Return a set of characters for property enumeration.
- * For each two consecutive characters (start, limit) in the set,
- * all of the properties for start..limit-1 are all the same.
- *
- * @param sa USetAdder to receive result. Existing contents are lost.
- * @internal
- */
-/*U_CFUNC void U_EXPORT2
-uprv_getInclusions(const USetAdder *sa, UErrorCode *pErrorCode);
-*/
-
-/**
- * Swap the ICU Unicode character names file. See uchar.c.
- * @internal
- */
-U_CAPI int32_t U_EXPORT2
-uchar_swapNames(const UDataSwapper *ds,
-                const void *inData, int32_t length, void *outData,
-                UErrorCode *pErrorCode);
 
 #ifdef __cplusplus
 

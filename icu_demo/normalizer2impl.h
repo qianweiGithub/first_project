@@ -625,8 +625,8 @@ public:
     static const Normalizer2 *getInstance(UNormalizationMode mode, UErrorCode &errorCode);
 
     static const Normalizer2Impl *getNFCImpl(UErrorCode &errorCode);
-    static const Normalizer2Impl *getNFKCImpl(UErrorCode &errorCode);
-    static const Normalizer2Impl *getNFKC_CFImpl(UErrorCode &errorCode);
+    //static const Normalizer2Impl *getNFKCImpl(UErrorCode &errorCode);
+    //static const Normalizer2Impl *getNFKC_CFImpl(UErrorCode &errorCode);
 
     // Get the Impl instance of the Normalizer2.
     // Must be used only when it is known that norm2 is a Normalizer2WithImpl instance.
@@ -646,8 +646,8 @@ unorm2_swap(const UDataSwapper *ds,
  * Get the NF*_QC property for a code point, for u_getIntPropertyValue().
  * @internal
  */
-U_CFUNC UNormalizationCheckResult
-unorm_getQuickCheck(UChar32 c, UNormalizationMode mode);
+//U_CFUNC UNormalizationCheckResult
+//unorm_getQuickCheck(UChar32 c, UNormalizationMode mode);
 
 /**
  * Gets the 16-bit FCD value (lead & trail CCs) for a code point, for u_getIntPropertyValue().

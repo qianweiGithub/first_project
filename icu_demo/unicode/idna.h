@@ -111,9 +111,9 @@ public:
      * @return dest
      * @stable ICU 4.6
      */
-    virtual UnicodeString &
+    /*virtual UnicodeString &
     labelToASCII(const UnicodeString &label, UnicodeString &dest,
-                 IDNAInfo &info, UErrorCode &errorCode) const = 0;
+                 IDNAInfo &info, UErrorCode &errorCode) const = 0;*/
 
     /**
      * Converts a single domain name label into its Unicode form for human-readable display.
@@ -133,9 +133,9 @@ public:
      * @return dest
      * @stable ICU 4.6
      */
-    virtual UnicodeString &
+    /*virtual UnicodeString &
     labelToUnicode(const UnicodeString &label, UnicodeString &dest,
-                   IDNAInfo &info, UErrorCode &errorCode) const = 0;
+                   IDNAInfo &info, UErrorCode &errorCode) const = 0;*/
 
     /**
      * Converts a whole domain name into its ASCII form for DNS lookup.
@@ -179,29 +179,29 @@ public:
      * @return dest
      * @stable ICU 4.6
      */
-    virtual UnicodeString &
+    /*virtual UnicodeString &
     nameToUnicode(const UnicodeString &name, UnicodeString &dest,
-                  IDNAInfo &info, UErrorCode &errorCode) const = 0;
+                  IDNAInfo &info, UErrorCode &errorCode) const = 0;*/
 
     // UTF-8 versions of the processing methods ---------------------------- ***
 
-    /**
-     * Converts a single domain name label into its ASCII form for DNS lookup.
-     * UTF-8 version of labelToASCII(), same behavior.
-     *
-     * @param label Input domain name label
-     * @param dest Destination byte sink; Flush()ed if successful
-     * @param info Output container of IDNA processing details.
-     * @param errorCode Standard ICU error code. Its input value must
-     *                  pass the U_SUCCESS() test, or else the function returns
-     *                  immediately. Check for U_FAILURE() on output or use with
-     *                  function chaining. (See User Guide for details.)
-     * @return dest
-     * @stable ICU 4.6
-     */
-    virtual void
-    labelToASCII_UTF8(StringPiece label, ByteSink &dest,
-                      IDNAInfo &info, UErrorCode &errorCode) const;
+    ///**
+    // * Converts a single domain name label into its ASCII form for DNS lookup.
+    // * UTF-8 version of labelToASCII(), same behavior.
+    // *
+    // * @param label Input domain name label
+    // * @param dest Destination byte sink; Flush()ed if successful
+    // * @param info Output container of IDNA processing details.
+    // * @param errorCode Standard ICU error code. Its input value must
+    // *                  pass the U_SUCCESS() test, or else the function returns
+    // *                  immediately. Check for U_FAILURE() on output or use with
+    // *                  function chaining. (See User Guide for details.)
+    // * @return dest
+    // * @stable ICU 4.6
+    // */
+    //virtual void
+    //labelToASCII_UTF8(StringPiece label, ByteSink &dest,
+    //                  IDNAInfo &info, UErrorCode &errorCode) const;
 
     /**
      * Converts a single domain name label into its Unicode form for human-readable display.
@@ -217,9 +217,9 @@ public:
      * @return dest
      * @stable ICU 4.6
      */
-    virtual void
+    /*virtual void
     labelToUnicodeUTF8(StringPiece label, ByteSink &dest,
-                       IDNAInfo &info, UErrorCode &errorCode) const;
+                       IDNAInfo &info, UErrorCode &errorCode) const;*/
 
     /**
      * Converts a whole domain name into its ASCII form for DNS lookup.
@@ -235,9 +235,9 @@ public:
      * @return dest
      * @stable ICU 4.6
      */
-    virtual void
+    /*virtual void
     nameToASCII_UTF8(StringPiece name, ByteSink &dest,
-                     IDNAInfo &info, UErrorCode &errorCode) const;
+                     IDNAInfo &info, UErrorCode &errorCode) const;*/
 
     /**
      * Converts a whole domain name into its Unicode form for human-readable display.
@@ -253,9 +253,9 @@ public:
      * @return dest
      * @stable ICU 4.6
      */
-    virtual void
+    /*virtual void
     nameToUnicodeUTF8(StringPiece name, ByteSink &dest,
-                      IDNAInfo &info, UErrorCode &errorCode) const;
+                      IDNAInfo &info, UErrorCode &errorCode) const;*/
 };
 
 class UTS46;

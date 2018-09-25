@@ -1,0 +1,864 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{facd4621-255f-4a7b-b3e4-4ceb3c0ae282}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="appendable.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="bmpset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="brkeng.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="brkiter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="bytestream.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="bytestrie.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="bytestriebuilder.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="bytestrieiterator.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="caniter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="chariter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="charstr.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="cmemory.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="cstr.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="cstring.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="cwchar.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="dictbe.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="dictionarydata.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="dtintrv.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="errorcode.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="filteredbrk.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="filterednormalizer2.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="icudataver.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="icuplug.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="listformatter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="loadednormalizer2impl.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="locavailable.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="locbased.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="locdispnames.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="locdspnm.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="locid.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="loclikely.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="locmap.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="locresdata.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="locutil.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="messagepattern.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="normalizer2.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="normalizer2impl.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="normlzr.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="parsepos.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="patternprops.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="pluralmap.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="propname.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="propsvec.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="punycode.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="putil.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbi.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbidata.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbinode.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbirb.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbiscan.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbisetb.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbistbl.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="rbbitblb.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="resbund.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="resbund_cnv.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="resource.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ruleiter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="schriter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="serv.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="servlk.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="servlkf.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="servls.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="servnotf.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="servrbf.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="servslkf.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="sharedobject.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="simpleformatter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="stringpiece.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="stringtriebuilder.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="stubdata.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uarrsort.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ubidi.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ubidi_props.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ubidiln.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ubiditransform.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ubidiwrt.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ubrk.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucase.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucasemap.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucasemap_titlecase_brkiter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucat.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uchar.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucharstrie.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucharstriebuilder.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucharstrieiterator.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uchriter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucln_cmn.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucmndata.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_bld.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_cb.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_cnv.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_ct.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_err.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_ext.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_io.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_lmb.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_set.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_u7.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_u8.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_u16.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv_u32.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnv2022.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvbocu.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvdisp.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvhz.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvisci.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvlat1.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvmbcs.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvscsu.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucnvsel.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucol_swp.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ucurr.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="udata.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="udatamem.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="udataswp.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uenum.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uhash.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uhash_us.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uidna.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uinit.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uinvchar.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uiter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ulist.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ulistformatter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uloc.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uloc_keytype.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uloc_tag.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="umapfile.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="umath.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="umutex.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unames.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unifiedcache.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unifilt.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unifunct.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uniset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uniset_closure.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uniset_props.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unisetspan.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_case.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_case_locale.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_cnv.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_props.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unistr_titlecase_brkiter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unorm.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="unormcmp.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uobject.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uprops.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ures_cnv.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uresbund.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uresdata.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="usc_impl.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uscript.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uscript_props.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uset.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uset_props.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="usetiter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ushape.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="usprep.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustack.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustr_cnv.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustr_titlecase_brkiter.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustr_wcs.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrcase.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrcase_locale.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrenum.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrfmt.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustring.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="ustrtrns.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="utext.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="utf_impl.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="util_props.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="utrace.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="utrie.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="utrie2.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="utrie2_builder.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uts46.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="utypes.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uvector.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uvectr32.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="uvectr64.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="wintz.c">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bmpset.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="brkeng.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="charstr.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="cmemory.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="cpputils.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="cstr.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="cstring.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="cwchar.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="dictbe.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="dictionarydata.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="hash.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="icuplugimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="localsvc.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="locbased.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="locmap.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="locutil.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="messageimpl.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="msvcres.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="mutex.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="norm2_nfc_data.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="norm2allmodes.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="normalizer2impl.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="patternprops.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="pluralmap.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="propname.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="propname_data.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="propsvec.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="punycode.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="putilimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="rbbidata.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="rbbinode.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="rbbirb.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="rbbirpt.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="rbbiscan.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="rbbisetb.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="rbbitblb.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ruleiter.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="serv.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="servloc.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="servnotf.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="sharedobject.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="sprpimpl.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uarrsort.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uassert.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ubidi_props.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ubidi_props_data.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ubidiimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ubrkimpl.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucase.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucase_props_data.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uchar_props_data.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucln.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucln_cmn.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucln_imp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucmndata.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucnv_bld.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucnv_cnv.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucnv_ext.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucnv_imp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucnv_io.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucnvmbcs.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucol_data.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucol_swp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ucurrimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="udatamem.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="udataswp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uelement.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uenumimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uhash.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uinvchar.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ulist.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ulocimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="umapfile.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="umutex.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="unifiedcache.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="unisetspan.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="unistrappender.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="unormimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uposixdefs.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uprops.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uresdata.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uresimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ureslocs.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="usc_impl.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uset_imp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ustr_cnv.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ustr_imp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ustrenum.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="ustrfmt.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="utracimp.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="utrie.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="utrie2.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="utrie2_impl.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="utypeinfo.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uvector.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uvectr32.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="uvectr64.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="wintz.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

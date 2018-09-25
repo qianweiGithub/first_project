@@ -257,11 +257,11 @@ uidna_labelToASCII(const UIDNA *idna,
  * @return destination string length
  * @stable ICU 4.6
  */
-U_STABLE int32_t U_EXPORT2
-uidna_labelToUnicode(const UIDNA *idna,
-                     const UChar *label, int32_t length,
-                     UChar *dest, int32_t capacity,
-                     UIDNAInfo *pInfo, UErrorCode *pErrorCode);
+//U_STABLE int32_t U_EXPORT2
+//uidna_labelToUnicode(const UIDNA *idna,
+//                     const UChar *label, int32_t length,
+//                     UChar *dest, int32_t capacity,
+//                     UIDNAInfo *pInfo, UErrorCode *pErrorCode);
 
 /**
  * Converts a whole domain name into its ASCII form for DNS lookup.
@@ -313,82 +313,13 @@ uidna_nameToASCII(const UIDNA *idna,
  * @return destination string length
  * @stable ICU 4.6
  */
-U_STABLE int32_t U_EXPORT2
-uidna_nameToUnicode(const UIDNA *idna,
-                    const UChar *name, int32_t length,
-                    UChar *dest, int32_t capacity,
-                    UIDNAInfo *pInfo, UErrorCode *pErrorCode);
+//U_STABLE int32_t U_EXPORT2
+//uidna_nameToUnicode(const UIDNA *idna,
+//                    const UChar *name, int32_t length,
+//                    UChar *dest, int32_t capacity,
+//                    UIDNAInfo *pInfo, UErrorCode *pErrorCode);
 
 /* UTF-8 versions of the processing methods --------------------------------- */
-
-/**
- * Converts a single domain name label into its ASCII form for DNS lookup.
- * UTF-8 version of uidna_labelToASCII(), same behavior.
- *
- * @param idna UIDNA instance
- * @param label Input domain name label
- * @param length Label length, or -1 if NUL-terminated
- * @param dest Destination string buffer
- * @param capacity Destination buffer capacity
- * @param pInfo Output container of IDNA processing details.
- * @param pErrorCode Standard ICU error code. Its input value must
- *                  pass the U_SUCCESS() test, or else the function returns
- *                  immediately. Check for U_FAILURE() on output or use with
- *                  function chaining. (See User Guide for details.)
- * @return destination string length
- * @stable ICU 4.6
- */
-U_STABLE int32_t U_EXPORT2
-uidna_labelToASCII_UTF8(const UIDNA *idna,
-                        const char *label, int32_t length,
-                        char *dest, int32_t capacity,
-                        UIDNAInfo *pInfo, UErrorCode *pErrorCode);
-
-/**
- * Converts a single domain name label into its Unicode form for human-readable display.
- * UTF-8 version of uidna_labelToUnicode(), same behavior.
- *
- * @param idna UIDNA instance
- * @param label Input domain name label
- * @param length Label length, or -1 if NUL-terminated
- * @param dest Destination string buffer
- * @param capacity Destination buffer capacity
- * @param pInfo Output container of IDNA processing details.
- * @param pErrorCode Standard ICU error code. Its input value must
- *                  pass the U_SUCCESS() test, or else the function returns
- *                  immediately. Check for U_FAILURE() on output or use with
- *                  function chaining. (See User Guide for details.)
- * @return destination string length
- * @stable ICU 4.6
- */
-U_STABLE int32_t U_EXPORT2
-uidna_labelToUnicodeUTF8(const UIDNA *idna,
-                         const char *label, int32_t length,
-                         char *dest, int32_t capacity,
-                         UIDNAInfo *pInfo, UErrorCode *pErrorCode);
-
-/**
- * Converts a whole domain name into its ASCII form for DNS lookup.
- * UTF-8 version of uidna_nameToASCII(), same behavior.
- *
- * @param idna UIDNA instance
- * @param name Input domain name
- * @param length Domain name length, or -1 if NUL-terminated
- * @param dest Destination string buffer
- * @param capacity Destination buffer capacity
- * @param pInfo Output container of IDNA processing details.
- * @param pErrorCode Standard ICU error code. Its input value must
- *                  pass the U_SUCCESS() test, or else the function returns
- *                  immediately. Check for U_FAILURE() on output or use with
- *                  function chaining. (See User Guide for details.)
- * @return destination string length
- * @stable ICU 4.6
- */
-U_STABLE int32_t U_EXPORT2
-uidna_nameToASCII_UTF8(const UIDNA *idna,
-                       const char *name, int32_t length,
-                       char *dest, int32_t capacity,
-                       UIDNAInfo *pInfo, UErrorCode *pErrorCode);
 
 /**
  * Converts a whole domain name into its Unicode form for human-readable display.
@@ -407,11 +338,11 @@ uidna_nameToASCII_UTF8(const UIDNA *idna,
  * @return destination string length
  * @stable ICU 4.6
  */
-U_STABLE int32_t U_EXPORT2
-uidna_nameToUnicodeUTF8(const UIDNA *idna,
-                        const char *name, int32_t length,
-                        char *dest, int32_t capacity,
-                        UIDNAInfo *pInfo, UErrorCode *pErrorCode);
+//U_STABLE int32_t U_EXPORT2
+//uidna_nameToUnicodeUTF8(const UIDNA *idna,
+//                        const char *name, int32_t length,
+//                        char *dest, int32_t capacity,
+//                        UIDNAInfo *pInfo, UErrorCode *pErrorCode);
 
 /*
  * IDNA error bit set values.

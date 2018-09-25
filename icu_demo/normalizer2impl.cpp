@@ -2005,106 +2005,106 @@ U_NAMESPACE_END
 // Normalizer2 data swapping ----------------------------------------------- ***
 
 U_NAMESPACE_USE
-
-U_CAPI int32_t U_EXPORT2
-unorm2_swap(const UDataSwapper *ds,
-            const void *inData, int32_t length, void *outData,
-            UErrorCode *pErrorCode) {
-    const UDataInfo *pInfo;
-    int32_t headerSize;
-
-    const uint8_t *inBytes;
-    uint8_t *outBytes;
-
-    const int32_t *inIndexes;
-    int32_t indexes[Normalizer2Impl::IX_MIN_MAYBE_YES+1];
-
-    int32_t i, offset, nextOffset, size;
-
-    /* udata_swapDataHeader checks the arguments */
-    headerSize=udata_swapDataHeader(ds, inData, length, outData, pErrorCode);
-    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
-        return 0;
-    }
-
-    /* check data format and format version */
-    pInfo=(const UDataInfo *)((const char *)inData+4);
-    if(!(
-        pInfo->dataFormat[0]==0x4e &&   /* dataFormat="Nrm2" */
-        pInfo->dataFormat[1]==0x72 &&
-        pInfo->dataFormat[2]==0x6d &&
-        pInfo->dataFormat[3]==0x32 &&
-        (pInfo->formatVersion[0]==1 || pInfo->formatVersion[0]==2)
-    )) {
-        udata_printError(ds, "unorm2_swap(): data format %02x.%02x.%02x.%02x (format version %02x) is not recognized as Normalizer2 data\n",
-                         pInfo->dataFormat[0], pInfo->dataFormat[1],
-                         pInfo->dataFormat[2], pInfo->dataFormat[3],
-                         pInfo->formatVersion[0]);
-        *pErrorCode=U_UNSUPPORTED_ERROR;
-        return 0;
-    }
-
-    inBytes=(const uint8_t *)inData+headerSize;
-    outBytes=(uint8_t *)outData+headerSize;
-
-    inIndexes=(const int32_t *)inBytes;
-
-    if(length>=0) {
-        length-=headerSize;
-        if(length<(int32_t)sizeof(indexes)) {
-            udata_printError(ds, "unorm2_swap(): too few bytes (%d after header) for Normalizer2 data\n",
-                             length);
-            *pErrorCode=U_INDEX_OUTOFBOUNDS_ERROR;
-            return 0;
-        }
-    }
-
-    /* read the first few indexes */
-    for(i=0; i<=Normalizer2Impl::IX_MIN_MAYBE_YES; ++i) {
-        indexes[i]=udata_readInt32(ds, inIndexes[i]);
-    }
-
-    /* get the total length of the data */
-    size=indexes[Normalizer2Impl::IX_TOTAL_SIZE];
-
-    if(length>=0) {
-        if(length<size) {
-            udata_printError(ds, "unorm2_swap(): too few bytes (%d after header) for all of Normalizer2 data\n",
-                             length);
-            *pErrorCode=U_INDEX_OUTOFBOUNDS_ERROR;
-            return 0;
-        }
-
-        /* copy the data for inaccessible bytes */
-        if(inBytes!=outBytes) {
-            uprv_memcpy(outBytes, inBytes, size);
-        }
-
-        offset=0;
-
-        /* swap the int32_t indexes[] */
-        nextOffset=indexes[Normalizer2Impl::IX_NORM_TRIE_OFFSET];
-        ds->swapArray32(ds, inBytes, nextOffset-offset, outBytes, pErrorCode);
-        offset=nextOffset;
-
-        /* swap the UTrie2 */
-        nextOffset=indexes[Normalizer2Impl::IX_EXTRA_DATA_OFFSET];
-        utrie2_swap(ds, inBytes+offset, nextOffset-offset, outBytes+offset, pErrorCode);
-        offset=nextOffset;
-
-        /* swap the uint16_t extraData[] */
-        nextOffset=indexes[Normalizer2Impl::IX_SMALL_FCD_OFFSET];
-        ds->swapArray16(ds, inBytes+offset, nextOffset-offset, outBytes+offset, pErrorCode);
-        offset=nextOffset;
-
-        /* no need to swap the uint8_t smallFCD[] (new in formatVersion 2) */
-        nextOffset=indexes[Normalizer2Impl::IX_SMALL_FCD_OFFSET+1];
-        offset=nextOffset;
-
-        U_ASSERT(offset==size);
-    }
-
-    return headerSize+size;
-}
+//
+//U_CAPI int32_t U_EXPORT2
+//unorm2_swap(const UDataSwapper *ds,
+//            const void *inData, int32_t length, void *outData,
+//            UErrorCode *pErrorCode) {
+//    const UDataInfo *pInfo;
+//    int32_t headerSize;
+//
+//    const uint8_t *inBytes;
+//    uint8_t *outBytes;
+//
+//    const int32_t *inIndexes;
+//    int32_t indexes[Normalizer2Impl::IX_MIN_MAYBE_YES+1];
+//
+//    int32_t i, offset, nextOffset, size;
+//
+//    /* udata_swapDataHeader checks the arguments */
+//    headerSize=udata_swapDataHeader(ds, inData, length, outData, pErrorCode);
+//    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
+//        return 0;
+//    }
+//
+//    /* check data format and format version */
+//    pInfo=(const UDataInfo *)((const char *)inData+4);
+//    if(!(
+//        pInfo->dataFormat[0]==0x4e &&   /* dataFormat="Nrm2" */
+//        pInfo->dataFormat[1]==0x72 &&
+//        pInfo->dataFormat[2]==0x6d &&
+//        pInfo->dataFormat[3]==0x32 &&
+//        (pInfo->formatVersion[0]==1 || pInfo->formatVersion[0]==2)
+//    )) {
+//        udata_printError(ds, "unorm2_swap(): data format %02x.%02x.%02x.%02x (format version %02x) is not recognized as Normalizer2 data\n",
+//                         pInfo->dataFormat[0], pInfo->dataFormat[1],
+//                         pInfo->dataFormat[2], pInfo->dataFormat[3],
+//                         pInfo->formatVersion[0]);
+//        *pErrorCode=U_UNSUPPORTED_ERROR;
+//        return 0;
+//    }
+//
+//    inBytes=(const uint8_t *)inData+headerSize;
+//    outBytes=(uint8_t *)outData+headerSize;
+//
+//    inIndexes=(const int32_t *)inBytes;
+//
+//    if(length>=0) {
+//        length-=headerSize;
+//        if(length<(int32_t)sizeof(indexes)) {
+//            udata_printError(ds, "unorm2_swap(): too few bytes (%d after header) for Normalizer2 data\n",
+//                             length);
+//            *pErrorCode=U_INDEX_OUTOFBOUNDS_ERROR;
+//            return 0;
+//        }
+//    }
+//
+//    /* read the first few indexes */
+//    for(i=0; i<=Normalizer2Impl::IX_MIN_MAYBE_YES; ++i) {
+//        indexes[i]=udata_readInt32(ds, inIndexes[i]);
+//    }
+//
+//    /* get the total length of the data */
+//    size=indexes[Normalizer2Impl::IX_TOTAL_SIZE];
+//
+//    if(length>=0) {
+//        if(length<size) {
+//            udata_printError(ds, "unorm2_swap(): too few bytes (%d after header) for all of Normalizer2 data\n",
+//                             length);
+//            *pErrorCode=U_INDEX_OUTOFBOUNDS_ERROR;
+//            return 0;
+//        }
+//
+//        /* copy the data for inaccessible bytes */
+//        if(inBytes!=outBytes) {
+//            uprv_memcpy(outBytes, inBytes, size);
+//        }
+//
+//        offset=0;
+//
+//        /* swap the int32_t indexes[] */
+//        nextOffset=indexes[Normalizer2Impl::IX_NORM_TRIE_OFFSET];
+//        ds->swapArray32(ds, inBytes, nextOffset-offset, outBytes, pErrorCode);
+//        offset=nextOffset;
+//
+//        /* swap the UTrie2 */
+//        nextOffset=indexes[Normalizer2Impl::IX_EXTRA_DATA_OFFSET];
+//        utrie2_swap(ds, inBytes+offset, nextOffset-offset, outBytes+offset, pErrorCode);
+//        offset=nextOffset;
+//
+//        /* swap the uint16_t extraData[] */
+//        nextOffset=indexes[Normalizer2Impl::IX_SMALL_FCD_OFFSET];
+//        ds->swapArray16(ds, inBytes+offset, nextOffset-offset, outBytes+offset, pErrorCode);
+//        offset=nextOffset;
+//
+//        /* no need to swap the uint8_t smallFCD[] (new in formatVersion 2) */
+//        nextOffset=indexes[Normalizer2Impl::IX_SMALL_FCD_OFFSET+1];
+//        offset=nextOffset;
+//
+//        U_ASSERT(offset==size);
+//    }
+//
+//    return headerSize+size;
+//}
 
 #endif  // !UCONFIG_NO_NORMALIZATION

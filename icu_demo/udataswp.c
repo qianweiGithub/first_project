@@ -359,115 +359,115 @@ udata_swapDataHeader(const UDataSwapper *ds,
 
 /* API functions ------------------------------------------------------------ */
 
-U_CAPI UDataSwapper * U_EXPORT2
-udata_openSwapper(UBool inIsBigEndian, uint8_t inCharset,
-                  UBool outIsBigEndian, uint8_t outCharset,
-                  UErrorCode *pErrorCode) {
-    UDataSwapper *swapper;
-
-    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
-        return NULL;
-    }
-    if(inCharset>U_EBCDIC_FAMILY || outCharset>U_EBCDIC_FAMILY) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return NULL;
-    }
-
-    /* allocate the swapper */
-    swapper=uprv_malloc(sizeof(UDataSwapper));
-    if(swapper==NULL) {
-        *pErrorCode=U_MEMORY_ALLOCATION_ERROR;
-        return NULL;
-    }
-    uprv_memset(swapper, 0, sizeof(UDataSwapper));
-
-    /* set values and functions pointers according to in/out parameters */
-    swapper->inIsBigEndian=inIsBigEndian;
-    swapper->inCharset=inCharset;
-    swapper->outIsBigEndian=outIsBigEndian;
-    swapper->outCharset=outCharset;
-
-    swapper->readUInt16= inIsBigEndian==U_IS_BIG_ENDIAN ? uprv_readDirectUInt16 : uprv_readSwapUInt16;
-    swapper->readUInt32= inIsBigEndian==U_IS_BIG_ENDIAN ? uprv_readDirectUInt32 : uprv_readSwapUInt32;
-
-    swapper->writeUInt16= outIsBigEndian==U_IS_BIG_ENDIAN ? uprv_writeDirectUInt16 : uprv_writeSwapUInt16;
-    swapper->writeUInt32= outIsBigEndian==U_IS_BIG_ENDIAN ? uprv_writeDirectUInt32 : uprv_writeSwapUInt32;
-
-    swapper->compareInvChars= outCharset==U_ASCII_FAMILY ? uprv_compareInvAscii : uprv_compareInvEbcdic;
-
-    if(inIsBigEndian==outIsBigEndian) {
-        swapper->swapArray16=uprv_copyArray16;
-        swapper->swapArray32=uprv_copyArray32;
-        swapper->swapArray64=uprv_copyArray64;
-    } else {
-        swapper->swapArray16=uprv_swapArray16;
-        swapper->swapArray32=uprv_swapArray32;
-        swapper->swapArray64=uprv_swapArray64;
-    }
-
-    if(inCharset==U_ASCII_FAMILY) {
-        swapper->swapInvChars= outCharset==U_ASCII_FAMILY ? uprv_copyAscii : uprv_ebcdicFromAscii;
-    } else /* U_EBCDIC_FAMILY */ {
-        swapper->swapInvChars= outCharset==U_EBCDIC_FAMILY ? uprv_copyEbcdic : uprv_asciiFromEbcdic;
-    }
-
-    return swapper;
-}
-
-U_CAPI UDataSwapper * U_EXPORT2
-udata_openSwapperForInputData(const void *data, int32_t length,
-                              UBool outIsBigEndian, uint8_t outCharset,
-                              UErrorCode *pErrorCode) {
-    const DataHeader *pHeader;
-    uint16_t headerSize, infoSize;
-    UBool inIsBigEndian;
-    int8_t inCharset;
-
-    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
-        return NULL;
-    }
-    if( data==NULL ||
-        (length>=0 && length<(int32_t)sizeof(DataHeader)) ||
-        outCharset>U_EBCDIC_FAMILY
-    ) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return NULL;
-    }
-
-    pHeader=(const DataHeader *)data;
-    if( (length>=0 && length<sizeof(DataHeader)) ||
-        pHeader->dataHeader.magic1!=0xda ||
-        pHeader->dataHeader.magic2!=0x27 ||
-        pHeader->info.sizeofUChar!=2
-    ) {
-        *pErrorCode=U_UNSUPPORTED_ERROR;
-        return 0;
-    }
-
-    inIsBigEndian=(UBool)pHeader->info.isBigEndian;
-    inCharset=pHeader->info.charsetFamily;
-
-    if(inIsBigEndian==U_IS_BIG_ENDIAN) {
-        headerSize=pHeader->dataHeader.headerSize;
-        infoSize=pHeader->info.size;
-    } else {
-        headerSize=uprv_readSwapUInt16(pHeader->dataHeader.headerSize);
-        infoSize=uprv_readSwapUInt16(pHeader->info.size);
-    }
-
-    if( headerSize<sizeof(DataHeader) ||
-        infoSize<sizeof(UDataInfo) ||
-        headerSize<(sizeof(pHeader->dataHeader)+infoSize) ||
-        (length>=0 && length<headerSize)
-    ) {
-        *pErrorCode=U_UNSUPPORTED_ERROR;
-        return 0;
-    }
-
-    return udata_openSwapper(inIsBigEndian, inCharset, outIsBigEndian, outCharset, pErrorCode);
-}
-
-U_CAPI void U_EXPORT2
-udata_closeSwapper(UDataSwapper *ds) {
-    uprv_free(ds);
-}
+//U_CAPI UDataSwapper * U_EXPORT2
+//udata_openSwapper(UBool inIsBigEndian, uint8_t inCharset,
+//                  UBool outIsBigEndian, uint8_t outCharset,
+//                  UErrorCode *pErrorCode) {
+//    UDataSwapper *swapper;
+//
+//    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
+//        return NULL;
+//    }
+//    if(inCharset>U_EBCDIC_FAMILY || outCharset>U_EBCDIC_FAMILY) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return NULL;
+//    }
+//
+//    /* allocate the swapper */
+//    swapper=uprv_malloc(sizeof(UDataSwapper));
+//    if(swapper==NULL) {
+//        *pErrorCode=U_MEMORY_ALLOCATION_ERROR;
+//        return NULL;
+//    }
+//    uprv_memset(swapper, 0, sizeof(UDataSwapper));
+//
+//    /* set values and functions pointers according to in/out parameters */
+//    swapper->inIsBigEndian=inIsBigEndian;
+//    swapper->inCharset=inCharset;
+//    swapper->outIsBigEndian=outIsBigEndian;
+//    swapper->outCharset=outCharset;
+//
+//    swapper->readUInt16= inIsBigEndian==U_IS_BIG_ENDIAN ? uprv_readDirectUInt16 : uprv_readSwapUInt16;
+//    swapper->readUInt32= inIsBigEndian==U_IS_BIG_ENDIAN ? uprv_readDirectUInt32 : uprv_readSwapUInt32;
+//
+//    swapper->writeUInt16= outIsBigEndian==U_IS_BIG_ENDIAN ? uprv_writeDirectUInt16 : uprv_writeSwapUInt16;
+//    swapper->writeUInt32= outIsBigEndian==U_IS_BIG_ENDIAN ? uprv_writeDirectUInt32 : uprv_writeSwapUInt32;
+//
+//    swapper->compareInvChars= outCharset==U_ASCII_FAMILY ? uprv_compareInvAscii : uprv_compareInvEbcdic;
+//
+//    if(inIsBigEndian==outIsBigEndian) {
+//        swapper->swapArray16=uprv_copyArray16;
+//        swapper->swapArray32=uprv_copyArray32;
+//        swapper->swapArray64=uprv_copyArray64;
+//    } else {
+//        swapper->swapArray16=uprv_swapArray16;
+//        swapper->swapArray32=uprv_swapArray32;
+//        swapper->swapArray64=uprv_swapArray64;
+//    }
+//
+//    if(inCharset==U_ASCII_FAMILY) {
+//        swapper->swapInvChars= outCharset==U_ASCII_FAMILY ? uprv_copyAscii : uprv_ebcdicFromAscii;
+//    } else /* U_EBCDIC_FAMILY */ {
+//        swapper->swapInvChars= outCharset==U_EBCDIC_FAMILY ? uprv_copyEbcdic : uprv_asciiFromEbcdic;
+//    }
+//
+//    return swapper;
+//}
+//
+//U_CAPI UDataSwapper * U_EXPORT2
+//udata_openSwapperForInputData(const void *data, int32_t length,
+//                              UBool outIsBigEndian, uint8_t outCharset,
+//                              UErrorCode *pErrorCode) {
+//    const DataHeader *pHeader;
+//    uint16_t headerSize, infoSize;
+//    UBool inIsBigEndian;
+//    int8_t inCharset;
+//
+//    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
+//        return NULL;
+//    }
+//    if( data==NULL ||
+//        (length>=0 && length<(int32_t)sizeof(DataHeader)) ||
+//        outCharset>U_EBCDIC_FAMILY
+//    ) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return NULL;
+//    }
+//
+//    pHeader=(const DataHeader *)data;
+//    if( (length>=0 && length<sizeof(DataHeader)) ||
+//        pHeader->dataHeader.magic1!=0xda ||
+//        pHeader->dataHeader.magic2!=0x27 ||
+//        pHeader->info.sizeofUChar!=2
+//    ) {
+//        *pErrorCode=U_UNSUPPORTED_ERROR;
+//        return 0;
+//    }
+//
+//    inIsBigEndian=(UBool)pHeader->info.isBigEndian;
+//    inCharset=pHeader->info.charsetFamily;
+//
+//    if(inIsBigEndian==U_IS_BIG_ENDIAN) {
+//        headerSize=pHeader->dataHeader.headerSize;
+//        infoSize=pHeader->info.size;
+//    } else {
+//        headerSize=uprv_readSwapUInt16(pHeader->dataHeader.headerSize);
+//        infoSize=uprv_readSwapUInt16(pHeader->info.size);
+//    }
+//
+//    if( headerSize<sizeof(DataHeader) ||
+//        infoSize<sizeof(UDataInfo) ||
+//        headerSize<(sizeof(pHeader->dataHeader)+infoSize) ||
+//        (length>=0 && length<headerSize)
+//    ) {
+//        *pErrorCode=U_UNSUPPORTED_ERROR;
+//        return 0;
+//    }
+//
+//    return udata_openSwapper(inIsBigEndian, inCharset, outIsBigEndian, outCharset, pErrorCode);
+//}
+//
+//U_CAPI void U_EXPORT2
+//udata_closeSwapper(UDataSwapper *ds) {
+//    uprv_free(ds);
+//}

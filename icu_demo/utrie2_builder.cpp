@@ -362,98 +362,98 @@ utrie2_printLengths(const UTrie2 *trie, const char *which) {
 }
 #endif
 
-U_CAPI UTrie2 * U_EXPORT2
-utrie2_cloneAsThawed(const UTrie2 *other, UErrorCode *pErrorCode) {
-    NewTrieAndStatus context;
-    UChar lead;
-
-    if(U_FAILURE(*pErrorCode)) {
-        return NULL;
-    }
-    if(other==NULL || (other->memory==NULL && other->newTrie==NULL)) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return NULL;
-    }
-    if(other->newTrie!=NULL && !other->newTrie->isCompacted) {
-        return utrie2_clone(other, pErrorCode);  /* clone an unfrozen trie */
-    }
-
-    /* Clone the frozen trie by enumerating it and building a new one. */
-    context.trie=utrie2_open(other->initialValue, other->errorValue, pErrorCode);
-    if(U_FAILURE(*pErrorCode)) {
-        return NULL;
-    }
-    context.exclusiveLimit=FALSE;
-    context.errorCode=*pErrorCode;
-    utrie2_enum(other, NULL, copyEnumRange, &context);
-    *pErrorCode=context.errorCode;
-    for(lead=0xd800; lead<0xdc00; ++lead) {
-        uint32_t value;
-        if(other->data32==NULL) {
-            value=UTRIE2_GET16_FROM_U16_SINGLE_LEAD(other, lead);
-        } else {
-            value=UTRIE2_GET32_FROM_U16_SINGLE_LEAD(other, lead);
-        }
-        if(value!=other->initialValue) {
-            utrie2_set32ForLeadSurrogateCodeUnit(context.trie, lead, value, pErrorCode);
-        }
-    }
-    if(U_FAILURE(*pErrorCode)) {
-        utrie2_close(context.trie);
-        context.trie=NULL;
-    }
-    return context.trie;
-}
-
-/* Almost the same as utrie2_cloneAsThawed() but copies a UTrie and freezes the clone. */
-U_CAPI UTrie2 * U_EXPORT2
-utrie2_fromUTrie(const UTrie *trie1, uint32_t errorValue, UErrorCode *pErrorCode) {
-    NewTrieAndStatus context;
-    UChar lead;
-
-    if(U_FAILURE(*pErrorCode)) {
-        return NULL;
-    }
-    if(trie1==NULL) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return NULL;
-    }
-    context.trie=utrie2_open(trie1->initialValue, errorValue, pErrorCode);
-    if(U_FAILURE(*pErrorCode)) {
-        return NULL;
-    }
-    context.exclusiveLimit=TRUE;
-    context.errorCode=*pErrorCode;
-    utrie_enum(trie1, NULL, copyEnumRange, &context);
-    *pErrorCode=context.errorCode;
-    for(lead=0xd800; lead<0xdc00; ++lead) {
-        uint32_t value;
-        if(trie1->data32==NULL) {
-            value=UTRIE_GET16_FROM_LEAD(trie1, lead);
-        } else {
-            value=UTRIE_GET32_FROM_LEAD(trie1, lead);
-        }
-        if(value!=trie1->initialValue) {
-            utrie2_set32ForLeadSurrogateCodeUnit(context.trie, lead, value, pErrorCode);
-        }
-    }
-    if(U_SUCCESS(*pErrorCode)) {
-        utrie2_freeze(context.trie,
-                      trie1->data32!=NULL ? UTRIE2_32_VALUE_BITS : UTRIE2_16_VALUE_BITS,
-                      pErrorCode);
-    }
-#ifdef UTRIE2_DEBUG
-    if(U_SUCCESS(*pErrorCode)) {
-        utrie_printLengths(trie1);
-        utrie2_printLengths(context.trie, "fromUTrie");
-    }
-#endif
-    if(U_FAILURE(*pErrorCode)) {
-        utrie2_close(context.trie);
-        context.trie=NULL;
-    }
-    return context.trie;
-}
+//U_CAPI UTrie2 * U_EXPORT2
+//utrie2_cloneAsThawed(const UTrie2 *other, UErrorCode *pErrorCode) {
+//    NewTrieAndStatus context;
+//    UChar lead;
+//
+//    if(U_FAILURE(*pErrorCode)) {
+//        return NULL;
+//    }
+//    if(other==NULL || (other->memory==NULL && other->newTrie==NULL)) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return NULL;
+//    }
+//    if(other->newTrie!=NULL && !other->newTrie->isCompacted) {
+//        return utrie2_clone(other, pErrorCode);  /* clone an unfrozen trie */
+//    }
+//
+//    /* Clone the frozen trie by enumerating it and building a new one. */
+//    context.trie=utrie2_open(other->initialValue, other->errorValue, pErrorCode);
+//    if(U_FAILURE(*pErrorCode)) {
+//        return NULL;
+//    }
+//    context.exclusiveLimit=FALSE;
+//    context.errorCode=*pErrorCode;
+//    utrie2_enum(other, NULL, copyEnumRange, &context);
+//    *pErrorCode=context.errorCode;
+//    for(lead=0xd800; lead<0xdc00; ++lead) {
+//        uint32_t value;
+//        if(other->data32==NULL) {
+//            value=UTRIE2_GET16_FROM_U16_SINGLE_LEAD(other, lead);
+//        } else {
+//            value=UTRIE2_GET32_FROM_U16_SINGLE_LEAD(other, lead);
+//        }
+//        if(value!=other->initialValue) {
+//            utrie2_set32ForLeadSurrogateCodeUnit(context.trie, lead, value, pErrorCode);
+//        }
+//    }
+//    if(U_FAILURE(*pErrorCode)) {
+//        utrie2_close(context.trie);
+//        context.trie=NULL;
+//    }
+//    return context.trie;
+//}
+//
+///* Almost the same as utrie2_cloneAsThawed() but copies a UTrie and freezes the clone. */
+//U_CAPI UTrie2 * U_EXPORT2
+//utrie2_fromUTrie(const UTrie *trie1, uint32_t errorValue, UErrorCode *pErrorCode) {
+//    NewTrieAndStatus context;
+//    UChar lead;
+//
+//    if(U_FAILURE(*pErrorCode)) {
+//        return NULL;
+//    }
+//    if(trie1==NULL) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return NULL;
+//    }
+//    context.trie=utrie2_open(trie1->initialValue, errorValue, pErrorCode);
+//    if(U_FAILURE(*pErrorCode)) {
+//        return NULL;
+//    }
+//    context.exclusiveLimit=TRUE;
+//    context.errorCode=*pErrorCode;
+//    utrie_enum(trie1, NULL, copyEnumRange, &context);
+//    *pErrorCode=context.errorCode;
+//    for(lead=0xd800; lead<0xdc00; ++lead) {
+//        uint32_t value;
+//        if(trie1->data32==NULL) {
+//            value=UTRIE_GET16_FROM_LEAD(trie1, lead);
+//        } else {
+//            value=UTRIE_GET32_FROM_LEAD(trie1, lead);
+//        }
+//        if(value!=trie1->initialValue) {
+//            utrie2_set32ForLeadSurrogateCodeUnit(context.trie, lead, value, pErrorCode);
+//        }
+//    }
+//    if(U_SUCCESS(*pErrorCode)) {
+//        utrie2_freeze(context.trie,
+//                      trie1->data32!=NULL ? UTRIE2_32_VALUE_BITS : UTRIE2_16_VALUE_BITS,
+//                      pErrorCode);
+//    }
+//#ifdef UTRIE2_DEBUG
+//    if(U_SUCCESS(*pErrorCode)) {
+//        utrie_printLengths(trie1);
+//        utrie2_printLengths(context.trie, "fromUTrie");
+//    }
+//#endif
+//    if(U_FAILURE(*pErrorCode)) {
+//        utrie2_close(context.trie);
+//        context.trie=NULL;
+//    }
+//    return context.trie;
+//}
 
 static inline UBool
 isInNullBlock(UNewTrie2 *trie, UChar32 c, UBool forLSCP) {
@@ -644,19 +644,19 @@ utrie2_set32(UTrie2 *trie, UChar32 c, uint32_t value, UErrorCode *pErrorCode) {
     set32(trie->newTrie, c, TRUE, value, pErrorCode);
 }
 
-U_CAPI void U_EXPORT2
-utrie2_set32ForLeadSurrogateCodeUnit(UTrie2 *trie,
-                                     UChar32 c, uint32_t value,
-                                     UErrorCode *pErrorCode) {
-    if(U_FAILURE(*pErrorCode)) {
-        return;
-    }
-    if(!U_IS_LEAD(c)) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return;
-    }
-    set32(trie->newTrie, c, FALSE, value, pErrorCode);
-}
+//U_CAPI void U_EXPORT2
+//utrie2_set32ForLeadSurrogateCodeUnit(UTrie2 *trie,
+//                                     UChar32 c, uint32_t value,
+//                                     UErrorCode *pErrorCode) {
+//    if(U_FAILURE(*pErrorCode)) {
+//        return;
+//    }
+//    if(!U_IS_LEAD(c)) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return;
+//    }
+//    set32(trie->newTrie, c, FALSE, value, pErrorCode);
+//}
 
 static void
 writeBlock(uint32_t *block, uint32_t value) {
