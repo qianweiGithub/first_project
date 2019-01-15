@@ -215,399 +215,399 @@ u_UCharsToChars(const UChar *us, char *cs, int32_t length) {
     }
 }
 
-U_CAPI UBool U_EXPORT2
-uprv_isInvariantString(const char *s, int32_t length) {
-    uint8_t c;
-
-    for(;;) {
-        if(length<0) {
-            /* NUL-terminated */
-            c=(uint8_t)*s++;
-            if(c==0) {
-                break;
-            }
-        } else {
-            /* count length */
-            if(length==0) {
-                break;
-            }
-            --length;
-            c=(uint8_t)*s++;
-            if(c==0) {
-                continue; /* NUL is invariant */
-            }
-        }
-        /* c!=0 now, one branch below checks c==0 for variant characters */
-
-        /*
-         * no assertions here because these functions are legitimately called
-         * for strings with variant characters
-         */
-#if U_CHARSET_FAMILY==U_ASCII_FAMILY
-        if(!UCHAR_IS_INVARIANT(c)) {
-            return FALSE; /* found a variant char */
-        }
-#elif U_CHARSET_FAMILY==U_EBCDIC_FAMILY
-        c=CHAR_TO_UCHAR(c);
-        if(c==0 || !UCHAR_IS_INVARIANT(c)) {
-            return FALSE; /* found a variant char */
-        }
-#else
-#   error U_CHARSET_FAMILY is not valid
-#endif
-    }
-    return TRUE;
-}
-
-U_CAPI UBool U_EXPORT2
-uprv_isInvariantUString(const UChar *s, int32_t length) {
-    UChar c;
-
-    for(;;) {
-        if(length<0) {
-            /* NUL-terminated */
-            c=*s++;
-            if(c==0) {
-                break;
-            }
-        } else {
-            /* count length */
-            if(length==0) {
-                break;
-            }
-            --length;
-            c=*s++;
-        }
-
-        /*
-         * no assertions here because these functions are legitimately called
-         * for strings with variant characters
-         */
-        if(!UCHAR_IS_INVARIANT(c)) {
-            return FALSE; /* found a variant char */
-        }
-    }
-    return TRUE;
-}
-
-/* UDataSwapFn implementations used in udataswp.c ------- */
-
-/* convert ASCII to EBCDIC and verify that all characters are invariant */
-U_CAPI int32_t U_EXPORT2
-uprv_ebcdicFromAscii(const UDataSwapper *ds,
-                     const void *inData, int32_t length, void *outData,
-                     UErrorCode *pErrorCode) {
-    const uint8_t *s;
-    uint8_t *t;
-    uint8_t c;
-
-    int32_t count;
-
-    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
-        return 0;
-    }
-    if(ds==NULL || inData==NULL || length<0 || (length>0 && outData==NULL)) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return 0;
-    }
-
-    /* setup and swapping */
-    s=(const uint8_t *)inData;
-    t=(uint8_t *)outData;
-    count=length;
-    while(count>0) {
-        c=*s++;
-        if(!UCHAR_IS_INVARIANT(c)) {
-            udata_printError(ds, "uprv_ebcdicFromAscii() string[%d] contains a variant character in position %d\n",
-                             length, length-count);
-            *pErrorCode=U_INVALID_CHAR_FOUND;
-            return 0;
-        }
-        *t++=ebcdicFromAscii[c];
-        --count;
-    }
-
-    return length;
-}
-
-/* this function only checks and copies ASCII strings without conversion */
-U_CFUNC int32_t
-uprv_copyAscii(const UDataSwapper *ds,
-               const void *inData, int32_t length, void *outData,
-               UErrorCode *pErrorCode) {
-    const uint8_t *s;
-    uint8_t c;
-
-    int32_t count;
-
-    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
-        return 0;
-    }
-    if(ds==NULL || inData==NULL || length<0 || (length>0 && outData==NULL)) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return 0;
-    }
-
-    /* setup and checking */
-    s=(const uint8_t *)inData;
-    count=length;
-    while(count>0) {
-        c=*s++;
-        if(!UCHAR_IS_INVARIANT(c)) {
-            udata_printError(ds, "uprv_copyFromAscii() string[%d] contains a variant character in position %d\n",
-                             length, length-count);
-            *pErrorCode=U_INVALID_CHAR_FOUND;
-            return 0;
-        }
-        --count;
-    }
-
-    if(length>0 && inData!=outData) {
-        uprv_memcpy(outData, inData, length);
-    }
-
-    return length;
-}
-
-/* convert EBCDIC to ASCII and verify that all characters are invariant */
-U_CFUNC int32_t
-uprv_asciiFromEbcdic(const UDataSwapper *ds,
-                     const void *inData, int32_t length, void *outData,
-                     UErrorCode *pErrorCode) {
-    const uint8_t *s;
-    uint8_t *t;
-    uint8_t c;
-
-    int32_t count;
-
-    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
-        return 0;
-    }
-    if(ds==NULL || inData==NULL || length<0 ||  (length>0 && outData==NULL)) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return 0;
-    }
-
-    /* setup and swapping */
-    s=(const uint8_t *)inData;
-    t=(uint8_t *)outData;
-    count=length;
-    while(count>0) {
-        c=*s++;
-        if(c!=0 && ((c=asciiFromEbcdic[c])==0 || !UCHAR_IS_INVARIANT(c))) {
-            udata_printError(ds, "uprv_asciiFromEbcdic() string[%d] contains a variant character in position %d\n",
-                             length, length-count);
-            *pErrorCode=U_INVALID_CHAR_FOUND;
-            return 0;
-        }
-        *t++=c;
-        --count;
-    }
-
-    return length;
-}
-
-/* this function only checks and copies EBCDIC strings without conversion */
-U_CFUNC int32_t
-uprv_copyEbcdic(const UDataSwapper *ds,
-                const void *inData, int32_t length, void *outData,
-                UErrorCode *pErrorCode) {
-    const uint8_t *s;
-    uint8_t c;
-
-    int32_t count;
-
-    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
-        return 0;
-    }
-    if(ds==NULL || inData==NULL || length<0 || (length>0 && outData==NULL)) {
-        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
-        return 0;
-    }
-
-    /* setup and checking */
-    s=(const uint8_t *)inData;
-    count=length;
-    while(count>0) {
-        c=*s++;
-        if(c!=0 && ((c=asciiFromEbcdic[c])==0 || !UCHAR_IS_INVARIANT(c))) {
-            udata_printError(ds, "uprv_copyEbcdic() string[%] contains a variant character in position %d\n",
-                             length, length-count);
-            *pErrorCode=U_INVALID_CHAR_FOUND;
-            return 0;
-        }
-        --count;
-    }
-
-    if(length>0 && inData!=outData) {
-        uprv_memcpy(outData, inData, length);
-    }
-
-    return length;
-}
-
-/* compare invariant strings; variant characters compare less than others and unlike each other */
-U_CFUNC int32_t
-uprv_compareInvAscii(const UDataSwapper *ds,
-                     const char *outString, int32_t outLength,
-                     const UChar *localString, int32_t localLength) {
-    int32_t minLength;
-    UChar32 c1, c2;
-    uint8_t c;
-
-    if(outString==NULL || outLength<-1 || localString==NULL || localLength<-1) {
-        return 0;
-    }
-
-    if(outLength<0) {
-        outLength=(int32_t)uprv_strlen(outString);
-    }
-    if(localLength<0) {
-        localLength=u_strlen(localString);
-    }
-
-    minLength= outLength<localLength ? outLength : localLength;
-
-    while(minLength>0) {
-        c=(uint8_t)*outString++;
-        if(UCHAR_IS_INVARIANT(c)) {
-            c1=c;
-        } else {
-            c1=-1;
-        }
-
-        c2=*localString++;
-        if(!UCHAR_IS_INVARIANT(c2)) {
-            c2=-2;
-        }
-
-        if((c1-=c2)!=0) {
-            return c1;
-        }
-
-        --minLength;
-    }
-
-    /* strings start with same prefix, compare lengths */
-    return outLength-localLength;
-}
-
-U_CFUNC int32_t
-uprv_compareInvEbcdic(const UDataSwapper *ds,
-                      const char *outString, int32_t outLength,
-                      const UChar *localString, int32_t localLength) {
-    int32_t minLength;
-    UChar32 c1, c2;
-    uint8_t c;
-
-    if(outString==NULL || outLength<-1 || localString==NULL || localLength<-1) {
-        return 0;
-    }
-
-    if(outLength<0) {
-        outLength=(int32_t)uprv_strlen(outString);
-    }
-    if(localLength<0) {
-        localLength=u_strlen(localString);
-    }
-
-    minLength= outLength<localLength ? outLength : localLength;
-
-    while(minLength>0) {
-        c=(uint8_t)*outString++;
-        if(c==0) {
-            c1=0;
-        } else if((c1=asciiFromEbcdic[c])!=0 && UCHAR_IS_INVARIANT(c1)) {
-            /* c1 is set */
-        } else {
-            c1=-1;
-        }
-
-        c2=*localString++;
-        if(!UCHAR_IS_INVARIANT(c2)) {
-            c2=-2;
-        }
-
-        if((c1-=c2)!=0) {
-            return c1;
-        }
-
-        --minLength;
-    }
-
-    /* strings start with same prefix, compare lengths */
-    return outLength-localLength;
-}
-
-U_CAPI int32_t U_EXPORT2
-uprv_compareInvEbcdicAsAscii(const char *s1, const char *s2) {
-    int32_t c1, c2;
-
-    for(;; ++s1, ++s2) {
-        c1=(uint8_t)*s1;
-        c2=(uint8_t)*s2;
-        if(c1!=c2) {
-            if(c1!=0 && ((c1=asciiFromEbcdic[c1])==0 || !UCHAR_IS_INVARIANT(c1))) {
-                c1=-(int32_t)(uint8_t)*s1;
-            }
-            if(c2!=0 && ((c2=asciiFromEbcdic[c2])==0 || !UCHAR_IS_INVARIANT(c2))) {
-                c2=-(int32_t)(uint8_t)*s2;
-            }
-            return c1-c2;
-        } else if(c1==0) {
-            return 0;
-        }
-    }
-}
-
-U_CAPI char U_EXPORT2
-uprv_ebcdicToLowercaseAscii(char c) {
-    return (char)lowercaseAsciiFromEbcdic[(uint8_t)c];
-}
-
-U_INTERNAL uint8_t* U_EXPORT2
-uprv_aestrncpy(uint8_t *dst, const uint8_t *src, int32_t n)
-{
-  uint8_t *orig_dst = dst;
-
-  if(n==-1) { 
-    n = uprv_strlen((const char*)src)+1; /* copy NUL */
-  }
-  /* copy non-null */
-  while(*src && n>0) {
-    *(dst++) = asciiFromEbcdic[*(src++)];
-    n--;
-  }
-  /* pad */
-  while(n>0) {
-    *(dst++) = 0;
-    n--;
-  }
-  return orig_dst;
-}
-
-U_INTERNAL uint8_t* U_EXPORT2
-uprv_eastrncpy(uint8_t *dst, const uint8_t *src, int32_t n)
-{
-  uint8_t *orig_dst = dst;
-
-  if(n==-1) { 
-    n = uprv_strlen((const char*)src)+1; /* copy NUL */
-  }
-  /* copy non-null */
-  while(*src && n>0) {
-    char ch = ebcdicFromAscii[*(src++)];
-    if(ch == 0) {
-      ch = ebcdicFromAscii[0x3f]; /* questionmark (subchar) */
-    }
-    *(dst++) = ch;
-    n--;
-  }
-  /* pad */
-  while(n>0) {
-    *(dst++) = 0;
-    n--;
-  }
-  return orig_dst;
-}
+//U_CAPI UBool U_EXPORT2
+//uprv_isInvariantString(const char *s, int32_t length) {
+//    uint8_t c;
+//
+//    for(;;) {
+//        if(length<0) {
+//            /* NUL-terminated */
+//            c=(uint8_t)*s++;
+//            if(c==0) {
+//                break;
+//            }
+//        } else {
+//            /* count length */
+//            if(length==0) {
+//                break;
+//            }
+//            --length;
+//            c=(uint8_t)*s++;
+//            if(c==0) {
+//                continue; /* NUL is invariant */
+//            }
+//        }
+//        /* c!=0 now, one branch below checks c==0 for variant characters */
+//
+//        /*
+//         * no assertions here because these functions are legitimately called
+//         * for strings with variant characters
+//         */
+//#if U_CHARSET_FAMILY==U_ASCII_FAMILY
+//        if(!UCHAR_IS_INVARIANT(c)) {
+//            return FALSE; /* found a variant char */
+//        }
+//#elif U_CHARSET_FAMILY==U_EBCDIC_FAMILY
+//        c=CHAR_TO_UCHAR(c);
+//        if(c==0 || !UCHAR_IS_INVARIANT(c)) {
+//            return FALSE; /* found a variant char */
+//        }
+//#else
+//#   error U_CHARSET_FAMILY is not valid
+//#endif
+//    }
+//    return TRUE;
+//}
+//
+//U_CAPI UBool U_EXPORT2
+//uprv_isInvariantUString(const UChar *s, int32_t length) {
+//    UChar c;
+//
+//    for(;;) {
+//        if(length<0) {
+//            /* NUL-terminated */
+//            c=*s++;
+//            if(c==0) {
+//                break;
+//            }
+//        } else {
+//            /* count length */
+//            if(length==0) {
+//                break;
+//            }
+//            --length;
+//            c=*s++;
+//        }
+//
+//        /*
+//         * no assertions here because these functions are legitimately called
+//         * for strings with variant characters
+//         */
+//        if(!UCHAR_IS_INVARIANT(c)) {
+//            return FALSE; /* found a variant char */
+//        }
+//    }
+//    return TRUE;
+//}
+//
+///* UDataSwapFn implementations used in udataswp.c ------- */
+//
+///* convert ASCII to EBCDIC and verify that all characters are invariant */
+//U_CAPI int32_t U_EXPORT2
+//uprv_ebcdicFromAscii(const UDataSwapper *ds,
+//                     const void *inData, int32_t length, void *outData,
+//                     UErrorCode *pErrorCode) {
+//    const uint8_t *s;
+//    uint8_t *t;
+//    uint8_t c;
+//
+//    int32_t count;
+//
+//    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
+//        return 0;
+//    }
+//    if(ds==NULL || inData==NULL || length<0 || (length>0 && outData==NULL)) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return 0;
+//    }
+//
+//    /* setup and swapping */
+//    s=(const uint8_t *)inData;
+//    t=(uint8_t *)outData;
+//    count=length;
+//    while(count>0) {
+//        c=*s++;
+//        if(!UCHAR_IS_INVARIANT(c)) {
+//            udata_printError(ds, "uprv_ebcdicFromAscii() string[%d] contains a variant character in position %d\n",
+//                             length, length-count);
+//            *pErrorCode=U_INVALID_CHAR_FOUND;
+//            return 0;
+//        }
+//        *t++=ebcdicFromAscii[c];
+//        --count;
+//    }
+//
+//    return length;
+//}
+//
+///* this function only checks and copies ASCII strings without conversion */
+//U_CFUNC int32_t
+//uprv_copyAscii(const UDataSwapper *ds,
+//               const void *inData, int32_t length, void *outData,
+//               UErrorCode *pErrorCode) {
+//    const uint8_t *s;
+//    uint8_t c;
+//
+//    int32_t count;
+//
+//    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
+//        return 0;
+//    }
+//    if(ds==NULL || inData==NULL || length<0 || (length>0 && outData==NULL)) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return 0;
+//    }
+//
+//    /* setup and checking */
+//    s=(const uint8_t *)inData;
+//    count=length;
+//    while(count>0) {
+//        c=*s++;
+//        if(!UCHAR_IS_INVARIANT(c)) {
+//            udata_printError(ds, "uprv_copyFromAscii() string[%d] contains a variant character in position %d\n",
+//                             length, length-count);
+//            *pErrorCode=U_INVALID_CHAR_FOUND;
+//            return 0;
+//        }
+//        --count;
+//    }
+//
+//    if(length>0 && inData!=outData) {
+//        uprv_memcpy(outData, inData, length);
+//    }
+//
+//    return length;
+//}
+//
+///* convert EBCDIC to ASCII and verify that all characters are invariant */
+//U_CFUNC int32_t
+//uprv_asciiFromEbcdic(const UDataSwapper *ds,
+//                     const void *inData, int32_t length, void *outData,
+//                     UErrorCode *pErrorCode) {
+//    const uint8_t *s;
+//    uint8_t *t;
+//    uint8_t c;
+//
+//    int32_t count;
+//
+//    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
+//        return 0;
+//    }
+//    if(ds==NULL || inData==NULL || length<0 ||  (length>0 && outData==NULL)) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return 0;
+//    }
+//
+//    /* setup and swapping */
+//    s=(const uint8_t *)inData;
+//    t=(uint8_t *)outData;
+//    count=length;
+//    while(count>0) {
+//        c=*s++;
+//        if(c!=0 && ((c=asciiFromEbcdic[c])==0 || !UCHAR_IS_INVARIANT(c))) {
+//            udata_printError(ds, "uprv_asciiFromEbcdic() string[%d] contains a variant character in position %d\n",
+//                             length, length-count);
+//            *pErrorCode=U_INVALID_CHAR_FOUND;
+//            return 0;
+//        }
+//        *t++=c;
+//        --count;
+//    }
+//
+//    return length;
+//}
+//
+///* this function only checks and copies EBCDIC strings without conversion */
+//U_CFUNC int32_t
+//uprv_copyEbcdic(const UDataSwapper *ds,
+//                const void *inData, int32_t length, void *outData,
+//                UErrorCode *pErrorCode) {
+//    const uint8_t *s;
+//    uint8_t c;
+//
+//    int32_t count;
+//
+//    if(pErrorCode==NULL || U_FAILURE(*pErrorCode)) {
+//        return 0;
+//    }
+//    if(ds==NULL || inData==NULL || length<0 || (length>0 && outData==NULL)) {
+//        *pErrorCode=U_ILLEGAL_ARGUMENT_ERROR;
+//        return 0;
+//    }
+//
+//    /* setup and checking */
+//    s=(const uint8_t *)inData;
+//    count=length;
+//    while(count>0) {
+//        c=*s++;
+//        if(c!=0 && ((c=asciiFromEbcdic[c])==0 || !UCHAR_IS_INVARIANT(c))) {
+//            udata_printError(ds, "uprv_copyEbcdic() string[%] contains a variant character in position %d\n",
+//                             length, length-count);
+//            *pErrorCode=U_INVALID_CHAR_FOUND;
+//            return 0;
+//        }
+//        --count;
+//    }
+//
+//    if(length>0 && inData!=outData) {
+//        uprv_memcpy(outData, inData, length);
+//    }
+//
+//    return length;
+//}
+//
+///* compare invariant strings; variant characters compare less than others and unlike each other */
+//U_CFUNC int32_t
+//uprv_compareInvAscii(const UDataSwapper *ds,
+//                     const char *outString, int32_t outLength,
+//                     const UChar *localString, int32_t localLength) {
+//    int32_t minLength;
+//    UChar32 c1, c2;
+//    uint8_t c;
+//
+//    if(outString==NULL || outLength<-1 || localString==NULL || localLength<-1) {
+//        return 0;
+//    }
+//
+//    if(outLength<0) {
+//        outLength=(int32_t)uprv_strlen(outString);
+//    }
+//    if(localLength<0) {
+//        localLength=u_strlen(localString);
+//    }
+//
+//    minLength= outLength<localLength ? outLength : localLength;
+//
+//    while(minLength>0) {
+//        c=(uint8_t)*outString++;
+//        if(UCHAR_IS_INVARIANT(c)) {
+//            c1=c;
+//        } else {
+//            c1=-1;
+//        }
+//
+//        c2=*localString++;
+//        if(!UCHAR_IS_INVARIANT(c2)) {
+//            c2=-2;
+//        }
+//
+//        if((c1-=c2)!=0) {
+//            return c1;
+//        }
+//
+//        --minLength;
+//    }
+//
+//    /* strings start with same prefix, compare lengths */
+//    return outLength-localLength;
+//}
+//
+//U_CFUNC int32_t
+//uprv_compareInvEbcdic(const UDataSwapper *ds,
+//                      const char *outString, int32_t outLength,
+//                      const UChar *localString, int32_t localLength) {
+//    int32_t minLength;
+//    UChar32 c1, c2;
+//    uint8_t c;
+//
+//    if(outString==NULL || outLength<-1 || localString==NULL || localLength<-1) {
+//        return 0;
+//    }
+//
+//    if(outLength<0) {
+//        outLength=(int32_t)uprv_strlen(outString);
+//    }
+//    if(localLength<0) {
+//        localLength=u_strlen(localString);
+//    }
+//
+//    minLength= outLength<localLength ? outLength : localLength;
+//
+//    while(minLength>0) {
+//        c=(uint8_t)*outString++;
+//        if(c==0) {
+//            c1=0;
+//        } else if((c1=asciiFromEbcdic[c])!=0 && UCHAR_IS_INVARIANT(c1)) {
+//            /* c1 is set */
+//        } else {
+//            c1=-1;
+//        }
+//
+//        c2=*localString++;
+//        if(!UCHAR_IS_INVARIANT(c2)) {
+//            c2=-2;
+//        }
+//
+//        if((c1-=c2)!=0) {
+//            return c1;
+//        }
+//
+//        --minLength;
+//    }
+//
+//    /* strings start with same prefix, compare lengths */
+//    return outLength-localLength;
+//}
+//
+//U_CAPI int32_t U_EXPORT2
+//uprv_compareInvEbcdicAsAscii(const char *s1, const char *s2) {
+//    int32_t c1, c2;
+//
+//    for(;; ++s1, ++s2) {
+//        c1=(uint8_t)*s1;
+//        c2=(uint8_t)*s2;
+//        if(c1!=c2) {
+//            if(c1!=0 && ((c1=asciiFromEbcdic[c1])==0 || !UCHAR_IS_INVARIANT(c1))) {
+//                c1=-(int32_t)(uint8_t)*s1;
+//            }
+//            if(c2!=0 && ((c2=asciiFromEbcdic[c2])==0 || !UCHAR_IS_INVARIANT(c2))) {
+//                c2=-(int32_t)(uint8_t)*s2;
+//            }
+//            return c1-c2;
+//        } else if(c1==0) {
+//            return 0;
+//        }
+//    }
+//}
+//
+//U_CAPI char U_EXPORT2
+//uprv_ebcdicToLowercaseAscii(char c) {
+//    return (char)lowercaseAsciiFromEbcdic[(uint8_t)c];
+//}
+//
+//U_INTERNAL uint8_t* U_EXPORT2
+//uprv_aestrncpy(uint8_t *dst, const uint8_t *src, int32_t n)
+//{
+//  uint8_t *orig_dst = dst;
+//
+//  if(n==-1) { 
+//    n = uprv_strlen((const char*)src)+1; /* copy NUL */
+//  }
+//  /* copy non-null */
+//  while(*src && n>0) {
+//    *(dst++) = asciiFromEbcdic[*(src++)];
+//    n--;
+//  }
+//  /* pad */
+//  while(n>0) {
+//    *(dst++) = 0;
+//    n--;
+//  }
+//  return orig_dst;
+//}
+//
+//U_INTERNAL uint8_t* U_EXPORT2
+//uprv_eastrncpy(uint8_t *dst, const uint8_t *src, int32_t n)
+//{
+//  uint8_t *orig_dst = dst;
+//
+//  if(n==-1) { 
+//    n = uprv_strlen((const char*)src)+1; /* copy NUL */
+//  }
+//  /* copy non-null */
+//  while(*src && n>0) {
+//    char ch = ebcdicFromAscii[*(src++)];
+//    if(ch == 0) {
+//      ch = ebcdicFromAscii[0x3f]; /* questionmark (subchar) */
+//    }
+//    *(dst++) = ch;
+//    n--;
+//  }
+//  /* pad */
+//  while(n>0) {
+//    *(dst++) = 0;
+//    n--;
+//  }
+//  return orig_dst;
+//}
 

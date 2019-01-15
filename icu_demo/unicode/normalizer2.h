@@ -310,8 +310,8 @@ public:
      * @return The non-negative composite code point if there is one; otherwise a negative value.
      * @stable ICU 49
      */
-    virtual UChar32
-    composePair(UChar32 a, UChar32 b) const;
+    /*virtual UChar32
+    composePair(UChar32 a, UChar32 b) const;*/
 
     /**
      * Gets the combining class of c.

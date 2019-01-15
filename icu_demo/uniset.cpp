@@ -23,7 +23,6 @@
 #include "uelement.h"
 #include "util.h"
 #include "uvector.h"
-#include "charstr.h"
 #include "ustrfmt.h"
 #include "uassert.h"
 #include "bmpset.h"

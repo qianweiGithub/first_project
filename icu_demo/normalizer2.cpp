@@ -47,10 +47,10 @@ Normalizer2::getRawDecomposition(UChar32, UnicodeString &) const {
     return FALSE;
 }
 
-UChar32
-Normalizer2::composePair(UChar32, UChar32) const {
-    return U_SENTINEL;
-}
+//UChar32
+//Normalizer2::composePair(UChar32, UChar32) const {
+//    return U_SENTINEL;
+//}
 
 uint8_t
 Normalizer2::getCombiningClass(UChar32 /*c*/) const {
@@ -427,10 +427,10 @@ unorm2_getRawDecomposition(const UNormalizer2 *norm2,
     }
 }
 
-U_CAPI UChar32 U_EXPORT2
-unorm2_composePair(const UNormalizer2 *norm2, UChar32 a, UChar32 b) {
-    return reinterpret_cast<const Normalizer2 *>(norm2)->composePair(a, b);
-}
+//U_CAPI UChar32 U_EXPORT2
+//unorm2_composePair(const UNormalizer2 *norm2, UChar32 a, UChar32 b) {
+//    return reinterpret_cast<const Normalizer2 *>(norm2)->composePair(a, b);
+//}
 
 U_CAPI uint8_t U_EXPORT2
 unorm2_getCombiningClass(const UNormalizer2 *norm2, UChar32 c) {

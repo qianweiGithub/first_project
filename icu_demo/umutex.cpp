@@ -119,60 +119,60 @@ umtx_unlock(UMutex* mutex)
 }
 
 
-U_CAPI void U_EXPORT2
-umtx_condBroadcast(UConditionVar *condition) {
-    // We require that the associated mutex be held by the caller,
-    //  so access to fWaitCount is protected and safe. No other thread can
-    //  call condWait() while we are here.
-    if (condition->fWaitCount == 0) {
-        return;
-    }
-    ResetEvent(condition->fExitGate);
-    SetEvent(condition->fEntryGate);
-}
-
-U_CAPI void U_EXPORT2
-umtx_condSignal(UConditionVar *condition) {
-    // Function not implemented. There is no immediate requirement from ICU to have it.
-    // Once ICU drops support for Windows XP and Server 2003, ICU Condition Variables will be
-    // changed to be thin wrappers on native Windows CONDITION_VARIABLEs, and this function
-    // becomes trivial to provide.
-    U_ASSERT(FALSE);
-}
-
-U_CAPI void U_EXPORT2
-umtx_condWait(UConditionVar *condition, UMutex *mutex) {
-    if (condition->fEntryGate == NULL) {
-        // Note: because the associated mutex must be locked when calling
-        //       wait, we know that there can not be multiple threads
-        //       running here with the same condition variable.
-        //       Meaning that lazy initialization is safe.
-        U_ASSERT(condition->fExitGate == NULL);
-        condition->fEntryGate = CreateEvent(NULL,   // Security Attributes
-                                            TRUE,   // Manual Reset
-                                            FALSE,  // Initially reset
-                                            NULL);  // Name.
-        U_ASSERT(condition->fEntryGate != NULL);
-        condition->fExitGate = CreateEvent(NULL, TRUE, TRUE, NULL);
-        U_ASSERT(condition->fExitGate != NULL);
-    }
-
-    condition->fWaitCount++;
-    umtx_unlock(mutex);
-    WaitForSingleObject(condition->fEntryGate, INFINITE); 
-    umtx_lock(mutex);
-    condition->fWaitCount--;
-    if (condition->fWaitCount == 0) {
-        // All threads that were waiting at the entry gate have woken up
-        // and moved through. Shut the entry gate and open the exit gate.
-        ResetEvent(condition->fEntryGate);
-        SetEvent(condition->fExitGate);
-    } else {
-        umtx_unlock(mutex);
-        WaitForSingleObject(condition->fExitGate, INFINITE);
-        umtx_lock(mutex);
-    }
-}
+//U_CAPI void U_EXPORT2
+//umtx_condBroadcast(UConditionVar *condition) {
+//    // We require that the associated mutex be held by the caller,
+//    //  so access to fWaitCount is protected and safe. No other thread can
+//    //  call condWait() while we are here.
+//    if (condition->fWaitCount == 0) {
+//        return;
+//    }
+//    ResetEvent(condition->fExitGate);
+//    SetEvent(condition->fEntryGate);
+//}
+//
+//U_CAPI void U_EXPORT2
+//umtx_condSignal(UConditionVar *condition) {
+//    // Function not implemented. There is no immediate requirement from ICU to have it.
+//    // Once ICU drops support for Windows XP and Server 2003, ICU Condition Variables will be
+//    // changed to be thin wrappers on native Windows CONDITION_VARIABLEs, and this function
+//    // becomes trivial to provide.
+//    U_ASSERT(FALSE);
+//}
+//
+//U_CAPI void U_EXPORT2
+//umtx_condWait(UConditionVar *condition, UMutex *mutex) {
+//    if (condition->fEntryGate == NULL) {
+//        // Note: because the associated mutex must be locked when calling
+//        //       wait, we know that there can not be multiple threads
+//        //       running here with the same condition variable.
+//        //       Meaning that lazy initialization is safe.
+//        U_ASSERT(condition->fExitGate == NULL);
+//        condition->fEntryGate = CreateEvent(NULL,   // Security Attributes
+//                                            TRUE,   // Manual Reset
+//                                            FALSE,  // Initially reset
+//                                            NULL);  // Name.
+//        U_ASSERT(condition->fEntryGate != NULL);
+//        condition->fExitGate = CreateEvent(NULL, TRUE, TRUE, NULL);
+//        U_ASSERT(condition->fExitGate != NULL);
+//    }
+//
+//    condition->fWaitCount++;
+//    umtx_unlock(mutex);
+//    WaitForSingleObject(condition->fEntryGate, INFINITE); 
+//    umtx_lock(mutex);
+//    condition->fWaitCount--;
+//    if (condition->fWaitCount == 0) {
+//        // All threads that were waiting at the entry gate have woken up
+//        // and moved through. Shut the entry gate and open the exit gate.
+//        ResetEvent(condition->fEntryGate);
+//        SetEvent(condition->fExitGate);
+//    } else {
+//        umtx_unlock(mutex);
+//        WaitForSingleObject(condition->fExitGate, INFINITE);
+//        umtx_lock(mutex);
+//    }
+//}
 
 
 #elif U_PLATFORM_IMPLEMENTS_POSIX
@@ -357,22 +357,22 @@ U_NAMESPACE_END
 //
 //--------------------------------------------------------------------------
 
-U_DEPRECATED void U_EXPORT2
-u_setMutexFunctions(const void * /*context */, UMtxInitFn *, UMtxFn *,
-                    UMtxFn *,  UMtxFn *, UErrorCode *status) {
-    if (U_SUCCESS(*status)) {
-        *status = U_UNSUPPORTED_ERROR;
-    }
-    return;
-}
-
-
-
-U_DEPRECATED void U_EXPORT2
-u_setAtomicIncDecFunctions(const void * /*context */, UMtxAtomicFn *, UMtxAtomicFn *,
-                           UErrorCode *status) {
-    if (U_SUCCESS(*status)) {
-        *status = U_UNSUPPORTED_ERROR;
-    }
-    return;
-}
+//U_DEPRECATED void U_EXPORT2
+//u_setMutexFunctions(const void * /*context */, UMtxInitFn *, UMtxFn *,
+//                    UMtxFn *,  UMtxFn *, UErrorCode *status) {
+//    if (U_SUCCESS(*status)) {
+//        *status = U_UNSUPPORTED_ERROR;
+//    }
+//    return;
+//}
+//
+//
+//
+//U_DEPRECATED void U_EXPORT2
+//u_setAtomicIncDecFunctions(const void * /*context */, UMtxAtomicFn *, UMtxAtomicFn *,
+//                           UErrorCode *status) {
+//    if (U_SUCCESS(*status)) {
+//        *status = U_UNSUPPORTED_ERROR;
+//    }
+//    return;
+//}

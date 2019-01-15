@@ -835,11 +835,11 @@ uhash_tokp(void* p) {
  * PUBLIC Key Hash Functions
  ********************************************************************/
 
-U_CAPI int32_t U_EXPORT2
-uhash_hashUChars(const UHashTok key) {
-    const UChar *s = (const UChar *)key.pointer;
-    return s == NULL ? 0 : ustr_hashUCharsN(s, u_strlen(s));
-}
+//U_CAPI int32_t U_EXPORT2
+//uhash_hashUChars(const UHashTok key) {
+//    const UChar *s = (const UChar *)key.pointer;
+//    return s == NULL ? 0 : ustr_hashUCharsN(s, u_strlen(s));
+//}
 
 U_CAPI int32_t U_EXPORT2
 uhash_hashChars(const UHashTok key) {
@@ -847,11 +847,11 @@ uhash_hashChars(const UHashTok key) {
     return s == NULL ? 0 : ustr_hashCharsN(s, uprv_strlen(s));
 }
 
-U_CAPI int32_t U_EXPORT2
-uhash_hashIChars(const UHashTok key) {
-    const char *s = (const char *)key.pointer;
-    return s == NULL ? 0 : ustr_hashICharsN(s, uprv_strlen(s));
-}
+//U_CAPI int32_t U_EXPORT2
+//uhash_hashIChars(const UHashTok key) {
+//    const char *s = (const char *)key.pointer;
+//    return s == NULL ? 0 : ustr_hashICharsN(s, uprv_strlen(s));
+//}
 
 U_CAPI UBool U_EXPORT2 
 uhash_equals(const UHashtable* hash1, const UHashtable* hash2){
@@ -943,22 +943,22 @@ uhash_compareChars(const UHashTok key1, const UHashTok key2) {
     return (UBool)(*p1 == *p2);
 }
 
-U_CAPI UBool U_EXPORT2
-uhash_compareIChars(const UHashTok key1, const UHashTok key2) {
-    const char *p1 = (const char*) key1.pointer;
-    const char *p2 = (const char*) key2.pointer;
-    if (p1 == p2) {
-        return TRUE;
-    }
-    if (p1 == NULL || p2 == NULL) {
-        return FALSE;
-    }
-    while (*p1 != 0 && uprv_tolower(*p1) == uprv_tolower(*p2)) {
-        ++p1;
-        ++p2;
-    }
-    return (UBool)(*p1 == *p2);
-}
+//U_CAPI UBool U_EXPORT2
+//uhash_compareIChars(const UHashTok key1, const UHashTok key2) {
+//    const char *p1 = (const char*) key1.pointer;
+//    const char *p2 = (const char*) key2.pointer;
+//    if (p1 == p2) {
+//        return TRUE;
+//    }
+//    if (p1 == NULL || p2 == NULL) {
+//        return FALSE;
+//    }
+//    while (*p1 != 0 && uprv_tolower(*p1) == uprv_tolower(*p2)) {
+//        ++p1;
+//        ++p2;
+//    }
+//    return (UBool)(*p1 == *p2);
+//}
 
 /********************************************************************
  * PUBLIC int32_t Support Functions
