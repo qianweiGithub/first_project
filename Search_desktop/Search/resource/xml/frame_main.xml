@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<layer title="2345游戏大厅" width="700" height="500" appwin="1" resize="1" resizeregion="7" minwidth="700" minheight="500" minbox="1" nomaxsize="0" defaultdrag="0" defaultfocus="0" layer="0" acceptfiles="0" animaterestore="1" redrawnc="0">
+  <shadow src="1101" margin="17,12,17,22" radiustop="0" radiusbottom="0" />
+  <body crbg="FFFFFF">
+    <dlg pos="0,0,-0,40" crbg="3495F4" drag="1">
+      <imgbtn id="11001" pos="-46,0" skin="skin_sysbtn_close" tip="关闭" />
+      <imgbtn id="11002" pos="-92,0" skin="skin_sysbtn_max" tip="最大化" />
+      <imgbtn id="11003" pos="-92,0" skin="skin_sysbtn_restore" visible="0" tip="还原" />
+      <imgbtn id="11004" pos="-138,0" skin="skin_sysbtn_min" tip="最小化" />
+    </dlg>
+    <dlg pos="0,80,-0,-40">
+      <listbox id="12001" pos="10,0,-10,-0" crbg="FFFFFF" scrollbarskin="scrollbar" enable="1"  panelfit-visual="0">
+        <!--<boxpanel id="12002" class="box_panel" height="30" expand="1" cursor="hand">
+          <hr pos="0,0,-0,1" size="1" visible="1" color="DFE6EB" linetype="2" style="solid"/>
+          <img id="12003" pos="10,14" cursor="hand"/>
+          <text id="12004" pos="46,7" height="38" class="style_listbox_panel_text" cursor="hand">上网残留垃圾L1</text>
+          <animate_panel id="12005" class="box_panel" height="24" enterexit-msg="1" duration="200" interval="40">
+            <img pos="73,4" skin="icon_serve_16"/>
+            <text pos="99,2" height="24" class="box_panel_text_level2">x服务缓存L2</text>
+          </animate_panel>
+        </boxpanel>-->
+      </listbox>
+    </dlg>
+    <!--状态栏-->
+    <dlg id="11012" pos="0,-26,-0,-0" crbg="F7F7F7">
+      <text id="13001" pos="10,0" yalign="center" fontsize="12" crtext="999999"></text>
+      <hr pos="0,0,-0,1" color="E5E5E5" linetype="2" />
+      <dlg pos="-162,1,-0,-0">
+        <text pos="0,0" textoffset="0,2" yalign="center" fontsize="12" crtext="999999">二三四五 股票代码：</text>
+        <text pos="#0,0" yalign="center" fontsize="12" crtext="999999">002195</text>
+      </dlg>
+    </dlg>
+  </body>
+</layer>

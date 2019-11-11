@@ -1,0 +1,147 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include <WinDef.h>
+#include <winnt.h>
+#include "ui/miniui/res/RCMiniUIResource.h"
+
+/// 公共资源定义
+// XML
+DEFINE_XML(IDR_XML_GLOBAL_STRING,                                            1001, "xml\\string.xml")
+DEFINE_XML(IDR_XML_GLOBAL_STYLE,                                             1002, "xml\\style.xml")
+DEFINE_XML(IDR_XML_GLOBAL_SKIN,                                              1003, "xml\\skin.xml")
+DEFINE_XML(IDR_XML_FRAME_MAIN,                                               1004, "xml\\frame_main.xml")
+
+// PNG
+DEFINE_PNG(IDR_PNG_FRAME_SHADOW,                                             1101, "png\\common\\mainFrame_shadow.png")
+DEFINE_PNG(IDR_PNG_SYSBTN_CLOSE,                                             1102, "png\\common\\systemBtn_close.png")
+DEFINE_PNG(IDR_PNG_SYSBTN_MAX,                                               1103, "png\\common\\systemBtn_max.png")
+DEFINE_PNG(IDR_PNG_SYSBTN_RESTORE,                                           1104, "png\\common\\systemBtn_window.png")
+DEFINE_PNG(IDR_PNG_SYSBTN_MIN,                                               1105, "png\\common\\systembtn_min.png")
+DEFINE_PNG(IDR_PNG_BTN_SETTING,                                              1106, "png\\common\\systemBtn_menu.png")
+DEFINE_PNG(IDR_PNG_BTN_GIFT,                                                 1107, "png\\common\\ico_giftBag.png")
+DEFINE_PNG(IDR_PNG_BTN_HEAD_PORTRAIT_MASK,                                   1108, "png\\common\\headPortrait_mask.png")
+DEFINE_PNG(IDR_PNG_TABBAR_PER_TAB_CLOSE,                                     1109, "png\\common\\tabBar_current_close.png")
+DEFINE_PNG(IDR_PNG_TABBAR_PER_TAB_CLOSE_INACTIVE,                            1110, "png\\common\\tabBar_default_close.png")
+DEFINE_PNG(IDR_PNG_TABBAR_ICON_HOMEPAGE,                                     1111, "png\\common\\tabBar_ico_homePage.png")
+DEFINE_PNG(IDR_PNG_TABBAR_ICON_GAMEPAGE_ACTIVE,                              1112, "png\\common\\tabBar_ico_current_gamePage.png")
+DEFINE_PNG(IDR_PNG_TABBAR_ICON_GAMEPAGE_INACTIVE,                            1113, "png\\common\\tabBar_ico_default_gamePage.png")
+DEFINE_PNG(IDR_PNG_MODAL_DIALOG_CLOSE,                                       1114, "png\\common\\modal_dialog_close.png")
+DEFINE_PNG(IDR_PNG_MODAL_DIALOG_SHADOW,                                      1115, "png\\common\\modal_dialog_shadow.png")
+DEFINE_PNG(IDR_PNG_SCROLLBAR_BACKGROUND,                                     1116, "png\\common\\scroll_bg.png")
+DEFINE_PNG(IDR_PNG_BTN_USER_PORTRAIT_DEFAULT,                                1117, "png\\common\\headPortrait_default.png")
+DEFINE_PNG(IDR_PNG_SYSMENU_SHADOW,                                           1118, "png\\common\\systeMenu_shadow.png")
+DEFINE_PNG(IDR_PNG_SYSMENU_SELECT,                                           1119, "png\\common\\systeMenu_select.png")
+DEFINE_PNG(IDR_PNG_MESSAGEBOX_MSG,                                           1120, "png\\common\\modal_dialog_msg.png")
+DEFINE_PNG(IDR_PNG_MESSAGEBOX_WARNING,                                       1121, "png\\common\\modal_dialog_warnning.png")
+DEFINE_PNG(IDR_PNG_GAMEHISTORY_DEFAULT_LOGO,                                 1122, "png\\common\\default_logo.png")
+DEFINE_PNG(IDR_PNG_CHECKBOX_CHECKED,                                         1123, "png\\common\\checkBox_checked.png")
+DEFINE_PNG(IDR_PNG_CHECKBOX_UNCHECKED,                                       1124, "png\\common\\checkBox_unchecked.png")
+DEFINE_PNG(IDR_PNG_BUBBLE_CLOSE,                                             1125, "png\\common\\bubbles_close.png")
+DEFINE_PNG(IDR_PNG_BTN_LOGIN_USER_PORTRAIT_DEFAULT,                          1126, "png\\common\\headPortrait_logo.png")
+DEFINE_PNG(IDR_PNG_TITLEBAR_BTN_REFRESH,                                     1127, "png\\common\\modal_dialog_refresh2.png")
+DEFINE_PNG(IDR_PNG_SYSBTN_USER_FEEDBACK,                                     1128, "png\\common\\systemBtn_userFeedback.png")
+DEFINE_PNG(IDR_PNG_BTN_LOGIN_USER_PORTRAIT_DEFAULT_2345,                     1129, "png\\common\\headPortrait_2345.png")
+DEFINE_PNG(IDR_PNG_BTN_LOGIN_USER_PORTRAIT_DEFAULT_QQ,                       1130, "png\\common\\headPortrait_QQ.png")
+DEFINE_PNG(IDR_PNG_BTN_LOGIN_USER_PORTRAIT_DEFAULT_WECHAT,                   1131, "png\\common\\headPortrait_WeChat.png")
+DEFINE_PNG(IDR_PNG_ALARM_CLOCK_DEFAULT_PAGE_ICON,                            1132, "png\\common\\alarmClock_defaultPage_icon.png")
+DEFINE_PNG(IDR_PNG_ALARM_CLOCK_DEFAULT_PAGE_ADD,                             1133, "png\\common\\alarmClock_defaultPage_add.png")
+DEFINE_PNG(IDR_PNG_ALARM_CLOCK_ICON,                                         1134, "png\\common\\alarmClock_icon.png")
+DEFINE_PNG(IDR_PNG_ALARM_CLOCK_SELECT_DOWN_ARROW,                            1135, "png\\common\\alarmClock_select_downArrow.png")
+DEFINE_PNG(IDR_PNG_ALARM_CLOCK_COMBOBOX_BG,                                  1136, "png\\common\\alarmClock_combobox_bg.png")
+DEFINE_PNG(IDR_PNG_ALARM_CLOCK_BUBBLE_ICON,                                  1137, "png\\common\\modal_dialog_alarmClock.png")
+DEFINE_PNG(IDR_PNG_MODAL_DIALOG_MINSIZE,                                     1138, "png\\common\\modal_dialog_min.png")
+
+
+DEFINE_PNG(IDR_PNG_LISTCTRL_HEAD,                                            3001, "png\\listhead.png")
+DEFINE_PNG(IDR_PNG_LISTCTRL_HEAD_SPLIT,                                      3002, "png\\listheadbar.png")
+DEFINE_PNG(IDR_PNG_LISTCTRL_HEAD_asc,                                        3003, "png\\listheadasc.png")
+DEFINE_PNG(IDR_PNG_LISTCTRL_HEAD_dec,                                        3004, "png\\listheaddec.png")
+
+DEFINE_ICO(IDR_ICO_LISTCTRL_ITRM_IMAGE,                                      3101, "ico\\tray.ico")
+
+// ICON
+// Attentions: Icon with lowest ID value placed first to ensure application icon remains consistent on all systems.
+DEFINE_ICO(IDR_ICO_LOGO,                                                     1201, "ico\\gamehall.ico")
+DEFINE_ICO(IDR_ICO_HISTORY_MENU_INPRIVATE_DEFAULT,                           1202, "png\\common\\systemMenu_default_trumpet.ico")
+DEFINE_ICO(IDR_ICO_HISTORY_MENU_INPRIVATE_SELECTED,                          1203, "png\\common\\systemMenu_current_trumpet.ico")
+DEFINE_ICO(IDR_ICO_HISTORY_MENU_DELETE_DEFAULT,                              1204, "png\\common\\systemMenu_default_delete.ico")
+DEFINE_ICO(IDR_ICO_HISTORY_MENU_DELETE_SELECTED,                             1205, "png\\common\\systemMenu_current_delete.ico")
+DEFINE_ICO(IDR_ICO_USER_MENU_USER_CENTER_DEFAULT,                            1206, "png\\common\\systemMenu_default_trumpet.ico")
+DEFINE_ICO(IDR_ICO_USER_MENU_USER_CENTER_SELECTED,                           1207, "png\\common\\systemMenu_current_trumpet.ico")
+DEFINE_ICO(IDR_ICO_USER_MENU_MODIFY_PICTURE_DEFAULT,                         1208, "png\\common\\systemMenu_default_modifyPicture.ico")
+DEFINE_ICO(IDR_ICO_USER_MENU_MODIFY_PICTURE_SELECTED,                        1209, "png\\common\\systemMenu_current_modifyPicture.ico")
+DEFINE_ICO(IDR_ICO_USER_MENU_SWITCH_ACCOUNT_DEFAULT,                         1210, "png\\common\\systemMenu_default_switchAccount.ico")
+DEFINE_ICO(IDR_ICO_USER_MENU_SWITCH_ACCOUNT_SELECTED,                        1211, "png\\common\\systemMenu_current_switchAccount.ico")
+DEFINE_ICO(IDR_ICO_USER_MENU_ACCOUNT_CANCEL_DEFAULT,                         1212, "png\\common\\systemMenu_default_accountCancel.ico")
+DEFINE_ICO(IDR_ICO_USER_MENU_ACCOUNT_CANCEL_SELECTED,                        1213, "png\\common\\systemMenu_current_accountCancel.ico")
+
+/// 专用资源定义
+// 
+
+// 主界面png
+DEFINE_PNG(IDR_PNG_FOOTER_NOTICE,                                            1301, "png\\mainFrame\\statusbar_ico_trumpet.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_ACCOUNT_MANAGE,                                   1302, "png\\mainFrame\\toolbar_accountManage.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_REFRESH,                                          1303, "png\\mainFrame\\toolbar_refresh.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_VOICE_OPEN,                                       1304, "png\\mainFrame\\toolbar_voice_open.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_VOICE_CLOSE,                                      1305, "png\\mainFrame\\toolbar_voice_close.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_SEPARATE_WINDOW,                                  1306, "png\\mainFrame\\toolbar_separateWindow.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_MERGE_WINDOW,                                     1307, "png\\mainFrame\\toolbar_mergeWindow.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_SHORTCUT,                                         1308, "png\\mainFrame\\toolbar_shortcut.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_REPAIR,                                           1309, "png\\mainFrame\\toolbar_repair.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_BOSSKEY,                                          1310, "png\\mainFrame\\toolbar_bossKey.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_FULLSCREEN,                                       1311, "png\\mainFrame\\toolbar_fullScreen.png")
+DEFINE_PNG(IDR_PNG_GAMEHISTORY_LOGO_MASK,                                    1312, "png\\mainFrame\\picture_mask.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_DOWNARROW,                                        1313, "png\\mainFrame\\toolbar_downArrow.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_SIGNIN,                                           1314, "png\\mainFrame\\toolbar_SignIn.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_COUPONMall,                                       1315, "png\\mainFrame\\toolbar_pointMall.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_ARROW_DOWN_BIG,                                   1316, "png\\mainFrame\\toolbar_downArrow_big.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_MOUSE_AUTO_CLICK,                                 1318, "png\\mainFrame\\toolbar_point_mouse.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_GAME_ALARM_CLOCK,                                 1319, "png\\mainFrame\\toolbar_gameAlarmClock.png")
+DEFINE_PNG(IDR_PNG_TOOLBAR_INPUT_RECORD,                                     1320, "png\\mainFrame\\toolbar_HangUpAssistant.png")
+
+// 游戏修复png
+DEFINE_PNG(IDR_PNG_DIALOG_GAME_REPAIR_FINISH,                                1401, "png\\mainFrame\\repairTools_ico_finish.png")
+DEFINE_PNG(IDR_PNG_DIALOG_GAME_REPAIR_ROCKET,                                1402, "png\\mainFrame\\repairTools_ico_rocket.png")
+DEFINE_PNG(IDR_PNG_DIALOG_GAME_REPAIR_REPAIRING,                             1403, "png\\mainFrame\\repairTools_loading_animation.png")
+
+// 小号管理png
+DEFINE_PNG(IDR_PNG_INPRIVATE_MASK,                                           1501, "png\\mainFrame\\sidebar_mask.png")
+DEFINE_PNG(IDR_PNG_INPRIVATE_CLOSE,                                          1502, "png\\mainFrame\\sidebar_close.png")
+DEFINE_PNG(IDR_PNG_INPRIVATE_DEFAULT_ACCOUNT_ICON,                           1503, "png\\mainFrame\\sidebar_default_accountIcon.png")
+DEFINE_PNG(IDR_PNG_INPRIVATE_SELECTED_ACCOUNT_ICON,                          1504, "png\\mainFrame\\sidebar_current_accountIcon.png")
+DEFINE_PNG(IDR_PNG_INPRIVATE_ACCOUNT_EDIT,                                   1505, "png\\mainFrame\\sidebar_editAccount.png")
+DEFINE_PNG(IDR_PNG_INPRIVATE_ACCOUNT_DELETE,                                 1506, "png\\mainFrame\\sidebar_deleteAccount.png")
+DEFINE_PNG(IDR_PNG_INPRIVATE_CONFIRM,                                        1507, "png\\mainFrame\\sidebar_done.png")
+DEFINE_PNG(IDR_PNG_INPRIVATE_CANCEL,                                         1508, "png\\mainFrame\\sidebar_cancel.png")
+DEFINE_PNG(IDR_PNG_INPRIVATE_ADD_ACCOUNT,                                    1509, "png\\mainFrame\\sidebar_newAccount.png")
+
+// 桌面图标创建成功气泡png
+DEFINE_PNG(IDR_PNG_BUBBLE_GAME_SHORTCUT_CREATED_SUCCESS,                     1601, "png\\mainFrame\\floatPop_ico_finish.png")
+
+// 主页引导气泡
+DEFINE_PNG(IDR_PNG_BUBBLE_CLOSE_WHITE,                                       1603, "png\\mainFrame\\bubbles_close_white.png")
+DEFINE_PNG(IDR_PNG_BUBBLE_CLOSE_RED,                                         1604, "png\\mainFrame\\bubbles_close.png")
+DEFINE_PNG(IDR_PNG_BUBBLE_RETURN,                                            1605, "png\\mainFrame\\bubbles_return.png")
+
+DEFINE_PNG(IDR_PNG_DIALOG_ABOUT_ICON_LOGO,                                   1801, "png\\mainFrame\\aboutUs_icon_logo.png")
+
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_RADIO_CHECKED,                        1901, "png\\common\\radio_checked.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_RADIO_UNCHECKED,                      1902, "png\\common\\radio_unchecked.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_BTN_UPPER,                            1903, "png\\common\\assistant_upper.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_BTN_LOWER,                            1904, "png\\common\\assistant_lower.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_ICON_RECORD_DEFAULT,                  1905, "png\\common\\assistant_recording_default.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_ICON_RECORD_DISABLED,                 1906, "png\\common\\assistant_recording_disabled.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_ICON_PLAYBACK_DEFAULT,                1907, "png\\common\\assistant_playback_default.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_ICON_PLAYBACK_DISABLED,               1908, "png\\common\\assistant_playback_disabled.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_ICON_STOP_DEFAULT,                    1909, "png\\common\\assistant_stop_default.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_ICON_STOP_DISABLED,                   1910, "png\\common\\assistant_stop_disabled.png")
+
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_INSTRUCTION_ICON_NUM_1,               2001, "png\\common\\alarmClock_number1.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_INSTRUCTION_ICON_NUM_2,               2002, "png\\common\\alarmClock_number2.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_INSTRUCTION_ICON_NUM_3,               2003, "png\\common\\alarmClock_number3.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_INSTRUCTION_ICON_NUM_4,               2004, "png\\common\\alarmClock_number4.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_INSTRUCTION_IMG_RECORD,               2005, "png\\common\\img_recording.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_INSTRUCTION_IMG_PLAYBACK,             2006, "png\\common\\img_playback.png")
+DEFINE_PNG(IDR_PNG_DIALOG_INPUT_RECORD_INSTRUCTION_IMG_STOP,                 2007, "png\\common\\img_stop.png")
+
+

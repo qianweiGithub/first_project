@@ -1,0 +1,55 @@
+<style>
+  <class name="style_main_frame_tool_bar_btn_text" crbgpress="D1D1D1" crbghover="E0E0E0" />
+  <class name="style_main_frame_tab_title" crtext="FFFFFF" crpressed="333333"  fontsize="12" crbgpress="FFFFFF" crdisabled="FFFFFF" crbghover="49A0F5" />
+  <class name="style_main_frame_tab_selected" crtext="FFFFFF" fontsize="12" crpressed="333333" crbgpress="FFFFFF" crdisabled="333333" crbghover="49A0F5" />
+  <class name="style_game_repair_text_btn" crbg="2AD17D" crbghover="30DA84" crbgpress="1EBD6D" crbgdisabled="FFFFFF" crborder="2AD17D" crborderhover="30DA84" crborderpress="1EBD6D" crborderdisabled="CCCCCC" fontsize="14" />
+  <class name="style_game_repair_result_text" fontsize="14" crtext="999999" />
+  <class name="style_game_repair_prompt_text" fontsize="18" crtext="333333" fontstyle="b" />
+  <class name="style_modal_dialog_title" fontsize="12" crtext="666666" />
+  <class name="style_inprivate_panel" crbghover="E0E0E0" />
+  <class name="style_inprivate_opened_panel" crbghover="E0E0E0" />
+  <class name="style_inprivate_text" fontsize="12" crtext="666666" textlinealign="center" />
+  <class name="style_inprivate_opened_text" fontsize="12" crtext="117AF2" fontstyle="b" textlinealign="center" />
+  <class name="style_messagebox_btn_confirm" fontsize="12" crtext="FFFFFF" textalign="center" textlinealign="center" crbg="3495F4" crborder="3495F4" crbghover="409FFF" crborderHover="409FFF" crbgpress="227CD6" crborderPress="227CD6" crbgdisabled="FFFFFF" crborderdisabled="CCCCCC" crdisabled="999999" />
+  <class name="style_messagebox_btn_cancel" fontsize="12" crtext="333333" textalign="center" textlinealign="center" crbg="FFFFFF" crborder="CCCCCC" crbghover="F5F5F5" crbgpress="EBEBEB" crdisabled="999999" />
+  <class name="style_messagebox_title" fontsize="12" crtext="666666" />
+  <class name="style_messagebox_text" fontsize="14" crtext="333333" />
+  <class name="style_game_history_item_title" fontsize="12" crtext="666666" crhover="117AF2" crpressed="117AF2" textalign="center" />
+  <class name="style_about_title" fontsize="12" crtext="666666" />
+  <class name="style_about_text" fontsize="12" crtext="666666" />
+  <class name="style_bosskey_edit" fontsize="12" textalign="near" crtext="333333" crdisabled="999999" crbg="FFFFFF" crbgdisabled="F7F7F7" crborder="CCCCCC" crborderdisabled="EBEBEB" />
+  <class name="style_fullscreen_exit_bubble_text" fontsize="14" crtext="CCCCCC" crdisabled="CCCCCC" />
+  <class name="style_fullscreen_exit_bubble_center_text" fontsize="14" crtext="808080" crdisabled="808080" />
+  <class name="style_main_frame_tool_bar_btn_login" fontsize="12" crtext="333333" textalign="center" textlinealign="center" crbgpress="D1D1D1" crbghover="E0E0E0" />
+  <class name="style_main_frame_tool_bar_btn_sign_in" fontsize="12" crtext="FFFFFF" crbg="FF8023" crbghover="FF8E52" crbgpress="F46B21" />
+  <class name="style_main_frame_tool_bar_btn_signed_in" fontsize="12" crtext="FFFFFF" textalign="center" textlinealign="center" crbg="85BFF8" crbghover="A3CFFA" crbgpress="67B0F7" />
+  <class name="style_main_frame_tool_bar_text_coupon" fontsize="12" crtext="FF7F00" fontstyle="b" />
+  <class name="style_status_bar_ad_text" fontsize="12" crtext="666666" crhover="117AF2" />
+  <class name="style_history_sid_text" fontsize="12" crdisabled="FFFFFF" textalign="center" textlinealign="center"  crbgdisabled="0000007F" />
+  <class name="style_alarm_clock_edit_combobox_menu" fontsize="14" textalign="center" textlinealign="center" crtext="333333" crhover="333333" crbg="FFFFFF" crbghover="F5F5F5" crbgpress="F5F5F5" />
+  <class name="style_alarm_clock_edit_combobox_item_text" fontsize="14" textalign="center" textlinealign="center" crdisabled="333333"/>
+  <class name="style_alarm_clock_list_item_title" fontsize="14" crtext="333333" textlinealign="center" />
+  <class name="style_alarm_clock_list_item_time" fontsize="14" crtext="666666" textlinealign="center" />
+  <class name="style_alarm_clock_edit_text" fontsize="14" crtext="333333" textlinealign="center" />
+  <class name="style_alarm_clock_cycle_panel" fontsize="14" crtext="333333" crhover="333333" crbg="FFFFFF" crbghover="F5F5F5" crbgpress="F5F5F5" />
+  <class name="style_alarm_clock_cycle_text" fontsize="14" textalign="near" textlinealign="center" crtext="333333" crhover="333333"/>
+  <class name="style_input_record_panel" crbghover="F5F5F5" />
+  <class name="style_input_record_panel_checked" crbghover="EAEAEA" />
+  <class name="style_input_record_btn_start_default" crbg="3495F4" crbghover="409FFF" crbgpress="227CD6" crbgdisabled="FFFFFF" crborder="3495F4" crborderHover="409FFF" crborderPress="227CD6" crborderdisabled="CCCCCC" />
+  <class name="style_input_record_btn_text_default" fontsize="16" crtext="FFFFFF" crdisabled="999999" textalign="center" textlinealign="center" />
+  <class name="style_input_record_text" fontsize="12" crtext="333333" />
+  <class name="style_input_record_text_timer" fontsize="18" crtext="3495F4" fontstyle="b" />
+  <class name="style_input_record_edit" fontsize="12" crtext="333333" textalign="near" crbg="FFFFFF" crborder="CCCCCC" />
+  <class name="style_input_record_btn_stop" crbg="FF2727" crbghover="FF4242" crbgpress="E81D1D" crborder="FF2727" crborderHover="FF4242" crborderPress="E81D1D" />>
+  <class name="style_input_record_text_max_time" fontsize="12" crtext="ff0f0f" />
+  <class name="style_input_record_instruction_text_title" fontsize="14" crtext="333333" fontstyle="b" />
+  <class name="style_input_record_instruction_text_content" fontsize="14" crtext="333333" />
+  <class name="style_input_record_text_open_instruction" fontsize="12" crtext="3495F4" />
+
+
+  <class name="style_listbox" crbg="F8FBFF" fontsize="12" crtext="000000" />
+  <class name="style_listbox_result_text" fontsize="12" crtext="000000" />
+  <class name="style_search_edit" fontsize="12" crtext="333333" textalign="near" crbg="FFFFFF" crborder="CCCCCC" />
+  <class name="style_listbox_panel_text" fontsize="12" crtext="333333" textalign="near" />
+  <class name="box_panel" crbg="FFFFFF" crbgpress="F2F2F2" crbghover="F2F2F2" />
+         </style>

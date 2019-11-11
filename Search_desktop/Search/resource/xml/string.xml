@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<string>
+  <s id="11001">
+   <![CDATA[
+    <listctrlitem>
+      <listcell>
+        <text pos="5,0" height="32" class="style_listctrl_result_text">%s</text>
+      </listcell>
+      <listcell>
+        <text pos="5,0" height="32" class="style_listctrl_result_text">%s</text>
+      </listcell>
+      <listcell>
+        <text pos="5,0" height="32" class="style_listctrl_result_text">%I64d KB</text>
+      </listcell>
+      <listcell>
+        <text pos="5,0" height="32" class="style_listctrl_result_text">%d/%d/%d %d:%d</text>
+      </listcell>
+    </listctrlitem>
+   ]]>
+  </s>
+  <s id="11002">%d个对象</s>
+  <s id="11003">
+   <![CDATA[
+    <menupanel id="12002" class="box_panel" height="30" expand="1" cursor="hand">
+      <img id="12003" pos="%d,5" cursor="hand"/>
+      <text id="12004" pos="%d,7" height="38" class="style_listbox_panel_text" cursor="hand">%s</text>
+    </menupanel>
+   ]]>
+  </s>
+</string>

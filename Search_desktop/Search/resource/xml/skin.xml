@@ -1,0 +1,95 @@
+﻿<skins>
+  <png name="skin_sysbtn_close" src="1102" subwidth="46" />
+  <png name="skin_sysbtn_max" src="1103" subwidth="46" />
+  <png name="skin_sysbtn_restore" src="1104" subwidth="46" />
+  <png name="skin_sysbtn_min" src="1105" subwidth="46" />
+  <png name="skin_frame_main_btn_setting" src="1106" subwidth="46" />
+  <png name="skin_frame_main_btn_gift" src="1107" subwidth="31" />
+  <png name="skin_frame_main_head_mask" src="1108" subwidth="50" />
+  <png name="skin_tabbar_btn_tab_close" src="1109" subwidth="17" />
+  <png name="skin_tabbar_btn_tab_close_inactive" src="1110" subwidth="17" />
+  <png name="skin_tabbar_icon_homepage" src="1111" />
+  <png name="skin_tabbar_icon_gamepage_active" src="1112" />
+  <png name="skin_tabbar_icon_gamepage_inactive" src="1113" />
+  <png name="skin_modal_dialog_close" src="1114" subwidth="39" />
+  <scrollbar name="skin_scroll_background" src="1116" sbwidth="6" thumb-len="15" thumb-marginx="1" thumb-marginy="3" />
+  <png name="skin_frame_main_user_head_default" src="1117" subwidth="50" />
+  <png name="skin_system_menu_select" src="1119" subwidth="16" />
+  <png name="skin_messagebox_msg" src="1120" />
+  <png name="skin_messagebox_warning" src="1121" />
+  <png name="skin_checkbox_checked" src="1123" subwidth="16" />
+  <png name="skin_checkbox_unchecked" src="1124" subwidth="16" />
+  <png name="skin_bubble_close" src="1125" subwidth="16" />
+  <png name="skin_frame_main_user_head_login_default" src="1126" subwidth="50" />
+  <png name="skin_footer_notice" src="1301" />
+  <png name="skin_toolbar_btn_account_manage" src="1302" />
+  <png name="skin_toolbar_btn_refresh" src="1303" />
+  <png name="skin_toolbar_btn_voice_on" src="1304" />
+  <png name="skin_toolbar_btn_voice_off" src="1305" />
+  <png name="skin_toolbar_btn_separate_window" src="1306" />
+  <png name="skin_toolbar_btn_merge_window" src="1307" />
+  <png name="skin_toolbar_btn_shortcut" src="1308" />
+  <png name="skin_toolbar_btn_repair" src="1309" />
+  <png name="skin_toolbar_btn_bosskey" src="1310" />
+  <png name="skin_toolbar_btn_fullscreen" src="1311" />
+  <png name="skin_toolbar_btn_down_arrow" src="1313" />
+  <png name="skin_toolbar_btn_sign_in" src="1314" />
+  <png name="skin_toolbar_btn_coupon_mall" src="1315" />
+  <png name="skin_toolbar_arrow_down_big" src="1316" />
+  <png name="skin_toolbar_btn_mouse_auto_click" src="1318" />
+  <png name="skin_toolbar_btn_game_alarm_clock" src="1319" />
+  <png name="skin_repair_tools_ico_finish" src="1401" />
+  <png name="skin_repair_tools_ico_rocket" src="1402" />
+  <png name="skin_repair_tools_repairing_gif" src="1403" subwidth="16" />
+  <png name="skin_inprivate_close" src="1502" subwidth="21" />
+  <png name="skin_inprivate_default_account_icon" src="1503" subwidth="16" />
+  <png name="skin_inprivate_selected_account_icon" src="1504" subwidth="16" />
+  <png name="skin_inprivate_account_edit" src="1505" subwidth="16" />
+  <png name="skin_inprivate_account_delete" src="1506" subwidth="16" />
+  <png name="skin_inprivate_confirm" src="1507" subwidth="16" />
+  <png name="skin_inprivate_cancel" src="1508"  subwidth="16" />
+  <png name="skin_inprivate_add_account" src="1509" subwidth="16" />
+  <png name="skin_game_history_default_logo" src="1122" />
+  <png name="skin_game_history_logo_mask" src="1312" />
+  <imgstretch name="skin_game_history_sidebar_mask" src="1501"/>
+  <png name="skin_bubble_game_shortcut_created_success" src="1601" />
+  <png name="skin_about_icon_logo" src="1801" />
+  <png name="skin_bubbles_close_white" src="1603" subwidth="16" />
+  <png name="skin_bubbles_close" src="1604" subwidth="26" />
+  <png name="skin_bubbles_return" src="1605" />
+  <png name="skin_modal_dialog_refresh2" src="1127" subwidth="39" />
+  <png name="skin_frame_main_btn_user_feedback" src="1128" subwidth="68" />
+  <png name="skin_frame_main_user_head_login_default_2345" src="1129" subwidth="50" />
+  <png name="skin_frame_main_user_head_login_default_qq" src="1130" subwidth="50" />
+  <png name="skin_frame_main_user_head_login_default_wechat" src="1131" subwidth="50" />
+  <png name="skin_frame_alarm_clock_list_default_page_icon" src="1132" />
+  <png name="skin_frame_alarm_clock_list_default_page_add" src="1133" />
+  <png name="skin_frame_alarm_clock_icon" src="1134"/>
+  <png name="skin_frame_alarm_clock_edit_select_down_arrow" src="1135" subwidth="20" />
+  <imgstretch name="skin_frame_alarm_clock_edit_combobox_bg" src="1136" subwidth="10" />
+   <png name="skin_bubble_alarm_clock_icon" src="1137" />
+  <png name="skin_modal_dialog_minsize" src="1138" subwidth="39" />
+  <png name="skin_toolbar_btn_input_record" src="1320" />
+  <png name="skin_radio_checked" src="1901" subwidth="16" />
+  <png name="skin_radio_unchecked" src="1902" subwidth="16" />
+  <png name="skin_input_record_btn_upper" src="1903" subwidth="20" />
+  <png name="skin_input_record_btn_lower" src="1904" subwidth="20" />
+  <png name="skin_input_record_icon_record_default" src="1905" subwidth="18" />
+  <png name="skin_input_record_icon_record_disabled" src="1906" subwidth="18" />
+  <png name="skin_input_record_icon_playback_default" src="1907" subwidth="18" />
+  <png name="skin_input_record_icon_playback_disabled" src="1908" subwidth="18" />
+  <png name="skin_input_record_icon_stop_default" src="1909" subwidth="18" />
+  <png name="skin_input_record_icon_stop_disabled" src="1910" subwidth="18" />
+  <png name="skin_input_record_instruction_icon_num_1" src="2001" subwidth="20" />
+  <png name="skin_input_record_instruction_icon_num_2" src="2002" subwidth="20" />
+  <png name="skin_input_record_instruction_icon_num_3" src="2003" subwidth="20" />
+  <png name="skin_input_record_instruction_icon_num_4" src="2004" subwidth="20" />
+  <png name="skin_input_record_instruction_img_record" src="2005" subwidth="316" />
+  <png name="skin_input_record_instruction_img_playback" src="2006" subwidth="316" />
+  <png name="skin_input_record_instruction_img_stop" src="2007" subwidth="316" />
+  <imgstretch name="skin_listctrl_head" src="3001"/>
+  <png name="skin_listctrl_head_split" src="3002"/>
+  <png name="skin_listctrl_head_asc" src="3003" subwidth="7"/>
+  <png name="skin_listctrl_head_dec" src="3004" subwidth="7"/>
+  
+</skins>
