@@ -9,9 +9,23 @@ git push -f -m origin master
 3.拉取前面版本
 git reset --hard 版本号（可以通过git log查询）
 git push -f -m origin master
+git reset --hard HEAD （恢复到最新版本）
 
 4.设置记住密码
 git config --global credential.helper store
 
 5.提交删除
 git rm test.txt
+
+6.删除新增文件
+git clean的作用就是清除未track的文件或文件夹， 主要有以下几个用法
+git clean -n 
+使用此命令将会显示将要删除的文件（注：但如果是新增的文件夹，则不会显示，包括这个文件夹下的文件也不会显示）
+git clean -f <path>
+使用此命令将会删除新增的文件，但不会删除新增的文件夹（包括这个文件下的文件）
+git clean -df
+使用些命令则会删除新增的文件和新增的文件夹
+git clean -xdf
+使用此命令则会删除新增的文件和新增的文件夹，包括被.ignore文件过滤文件或文件夹，所以这个命令最好是不要用
+
+7.查看当前版本
